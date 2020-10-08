@@ -1,0 +1,27 @@
+{
+    "name": "HEG Alpha Web Interface",
+    "version": "0.0.10",
+    "description": "HEG Alpha for Web. This enables Serial USB connectivity and more.",
+    "short_name": "HEG Alpha",
+    "permissions": [
+        "serial", 
+        "webview", 
+        "fullscreen",
+        "storage" 
+    ],
+    "minimum_chrome_version": "46",
+    "icons": {
+        "16": "images/favicon-16x16.png",
+        "32": "images/favicon-32x32.png",
+        "48": "images/favicon-48x48.png",
+        "96": "images/favicon-96x96.png",
+        "256": "images/favicon-256x256.png"
+    },
+    "app": {
+        "background": {
+            "scripts": [
+                "launch.js"
+            ]
+        }
+    } 
+  }
