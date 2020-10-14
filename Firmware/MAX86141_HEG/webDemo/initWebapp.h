@@ -4,7 +4,7 @@ const char initWebapp[] PROGMEM = R"=====(
 
  
 // Initialize Session - undefined are default values
-var s = new HEGwebAPI('',["us","Red","IR","Ambient","Ratio","HR","SPO2"],undefined,undefined,undefined,undefined,false); // Delobotomizer
+var s = new HEGwebAPI('',["us","Red","IR","Ambient","Ratio","HR","SPO2"],undefined,undefined,undefined,false); // Delobotomizer
 //var s = new HEGwebAPI('',undefined,undefined,undefined,undefined,false); //HEGduino
 //var s = new HEGwebAPI('',["us","lRed","lIR","lRatio","cRed","cIR","cRatio","rRed","rIR","rRatio"],undefined,undefined,undefined,false); //Statechanger
 
