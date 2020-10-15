@@ -18,13 +18,13 @@ Now follow the instructions on screen to browse for the .bin folder that you may
 
 This is my preferred way to interact with the HEG as it functions like a desktop app rather than dealing with the web interface (which does not work on older laptops), and allows Serial/Bluetooth Serial connectivity via the COM port browser in the top right corner of the UI. These are faster than WiFi transmission rates as well which is soft-limited at 20sps (while the device still runs at full speed but only reports a limited number of samples over WiFi)
 
-First download this repository to get the ChromeExtension folder.
+First download this repository and extract the ChromeExtension folder.
 
 Now open Chrome and type in "chrome://extensions" into the address bar.
 
 Turn on Developer Mode in the top right hand corner and then click the "Load Unpacked" option that shows up.
 
-Browse for the aforementioned ChromeExtension folder and select it. You should see an icon show up.
+Browse for the extracted ChromeExtension folder and select it. You should see an icon show up.
 
 Now enter "chrome://apps" into the address bar and this will let you open the Chrome extension. If you right click the app icon on the page or in your OS taskbar, you can create a desktop shortcut or pin the app to the taskbar so it is accessible just like any other desktop software!
 
