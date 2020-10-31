@@ -40,7 +40,7 @@ progress {
     Device response: <div id="message"></div>
     <progress id="progressbar" max="100"></progress>
     <br><br>Latest firmware can be found at <br>
-    <a href="https://github.com/moothyknight/HEG_ESP32">https://github.com/moothyknight/HEG_ESP32</a>
+    <a href="https://github.com/moothyknight/HEG_ESP32_Delobotomizer">https://github.com/moothyknight/HEG_ESP32_Delobotomizer</a>
   <div>
 
   <script>

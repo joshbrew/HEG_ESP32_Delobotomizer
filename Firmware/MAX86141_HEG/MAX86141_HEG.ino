@@ -1,23 +1,26 @@
-//MAX86141 HEG Biofeedback Firmware. By Joshua Brewster - MIT License
+ //MAX86141 HEG Biofeedback Firmware. By Joshua Brewster - MIT License
 //People who contributed: Diego Schmaedech, Michael Lyons, Ben Hale
 
 #include "WiFi_API.h"
 #include "BLE_API.h"
 
-unsigned long bootMicros = 0;
-unsigned long inputMicros;
+
 bool BLEtoggle = false;
 bool toggleSleep = false;
 bool WIFItoggle = false;
+unsigned long bootMicros = 0;
+unsigned long inputMicros;
 
-void setup(void){
+
+void setup(){
   Serial.begin(115200);
   Serial.println();
   Serial.println("Booting...");
 
   currentMicros = esp_timer_get_time();
   setupHEG();
-  delay(20);
+  delay(100);
+  
   EEPROM.begin(512);
   int sleep = EEPROM.read(510);
   if(sleep == 1){
@@ -100,8 +103,8 @@ void setup(void){
     digitalWrite(5,HIGH);
   }
   bootMicros = esp_timer_get_time();
-  //xTaskCreate(HEG_core_loop, "HEG_core_loop", 16384, NULL, 1, NULL);
 }
+
 
 void toggleCheck(){ //Checks toggles on initialization
   if(currentMicros - bootMicros < 3500000){
@@ -166,9 +169,8 @@ void loop(){
   currentMicros = esp_timer_get_time();
   //Serial.print("Time (ms): ");
   //Serial.println(currentMillis);
-
-  toggleCheck();
   
+  toggleCheck();
   HEG_core_loop();
   if(newOutputFlag){
       outputSerial();

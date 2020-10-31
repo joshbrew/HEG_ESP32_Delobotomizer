@@ -114,11 +114,9 @@ void MAX86141::init(int newSpiClk=1000000)
 	//
 	// LED Range = 124mA
 	// LED PA LSB = 0.48mA
-	// 20mA drive current setting = 20/0.48 = 42
-	// LED1 = IR, 300mA max
-	// LED2 = RED, 70mA max
+	// 20mA drive current setting = 20/0.48 = 42 
 	//
-	write_reg(REG_PD_BIAS, 0b00000000);
+	write_reg(REG_PD_BIAS, 0b00010001); // _ PD_BIAS (3 bits) _ PD_BIAS (3 bits) 
 	write_reg(REG_LED_RANGE_1, 0b00111111); // xx,LED3,LED2,LED1. 00,01,10,11 low to high
 	write_reg(REG_LED1_PA, 255); // 0 = 0mA, 255 = Max mA
 	write_reg(REG_LED2_PA, 255);
@@ -132,8 +130,8 @@ void MAX86141::init(int newSpiClk=1000000)
 	// LEDC3 = DIRECT AMBIENT
 	// 6 samples total.
 	//
-	write_reg(REG_FIFO_CONFIG_1, 128 - 6);
-	write_reg(REG_FIFO_CONFIG_2, 0b00001101);
+	write_reg(REG_FIFO_CONFIG_1, 128 - 6); // Set when the data full interrupt is triggered.
+	write_reg(REG_FIFO_CONFIG_2, 0b00001101); // _ _ _ Flush_Fifo Fifo_Stat_Clr A_Full_Type Fifo_RO 
 	//write_reg(REG_LED_SEQ_1, 0x21);
 	//write_reg(REG_LED_SEQ_2, 0x05);
 	write_reg(REG_LED_SEQ_1, 0b00100011); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT

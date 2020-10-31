@@ -60,7 +60,7 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
        
       //commandESP32(rxValue.c_str());
 
-      if (rxValue.find("t"))
+      if (rxValue.find("t") != -1)
         { //Enable Sensor
             //Exit Shutdown
             HEG1.write_reg(REG_MODE_CONFIG, 0b00000000);
@@ -69,40 +69,47 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             HEG1.read_reg(REG_INT_STAT_2);
             coreProgramEnabled = true;
         }
-        if (rxValue.find("f"))
+        if (rxValue.find("f") != -1)
         { //Disable sensor
             HEG1.write_reg(REG_MODE_CONFIG,0b00000011);
             coreProgramEnabled = false;
         }
-        if (rxValue.find("D")) {}
-        if (rxValue.find("L")) {}
-        if (rxValue.find("l")) {}
-        if (rxValue.find("c")) {}
-        if (rxValue.find("r")) {}
-        if (rxValue.find("R")) {
+        if (rxValue.find("o") != -1) {
+          if(MODE == "SPO2") {
+            MODE = "FAST";
+          }
+          else {
+            MODE = "SPO2";
+          }
+        }
+        if (rxValue.find("L") != -1) {}
+        if (rxValue.find("l") != -1) {}
+        if (rxValue.find("c") != -1) {}
+        if (rxValue.find("r") != -1) {}
+        if (rxValue.find("R") != -1) {
             if (USE_USB == true) {
             Serial.println("Restarting ESP32...");
             }
             delay(300);
             ESP.restart();
         }
-        if (rxValue.find("S")) 
+        if (rxValue.find("S") != -1) 
         {
             Serial.println("HEG going to sleep now... Reset the power to turn device back on!");
             delay(1000);
             esp_deep_sleep_start(); //Ends the loop() until device is reset.
         }
-        if (rxValue.find("s"))
+        if (rxValue.find("s") != -1)
         { //Standard LED mode
             HEG1.write_reg(REG_LED_SEQ_1, 0b00100001); //0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
             HEG1.write_reg(REG_LED_SEQ_2, 0b00001001);
         }
-        if (rxValue.find("p"))
+        if (rxValue.find("p") != -1)
         { //pIR Ambient-only toggle
             HEG1.write_reg(REG_LED_SEQ_1, 0b10011001); //0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
             HEG1.write_reg(REG_LED_SEQ_2, 0b00001001);
         }
-        if (rxValue.find("u"))
+        if (rxValue.find("u") != -1)
         { //USB Toggle
             EEPROM.begin(512);
             int ComMode = EEPROM.read(0);
@@ -122,7 +129,7 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             ESP.restart();
             }
         }
-        if (rxValue.find("B"))
+        if (rxValue.find("B") != - 1)
         { //Bluetooth Serial Toggle
             EEPROM.begin(512);
             int ComMode = EEPROM.read(0);
@@ -143,7 +150,7 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             ESP.restart();
             }
         }
-        if (rxValue.find("b"))
+        if (rxValue.find("b") != -1)
         { //Bluetooth LE Toggle
             EEPROM.begin(512);
             if (EEPROM.read(0) != 1)
@@ -188,7 +195,7 @@ void outputBT(){
       }
     }
   if (BLEdeviceConnected == true) // BLE
-  { // could just use output.c_str(); // Need to clean this up
+  {
       pCharacteristic->setValue(outputarr);
       pCharacteristic->notify();
       delay(10); // bluetooth stack will go into congestion if too many packets are sent

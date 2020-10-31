@@ -2,6 +2,13 @@
 *-*-*-*-*-*-*
 Changelog:
 *-*-*-*-*-*-*
+10/31/20
+------
+- Boids update, new feedback mode
+- Some cleanup to the UI
+- BLE mode cleaned up and support enabled in the chrome extension. "o" for fast output mode (for android web's 20 byte packet maximum)
+- Check out hegalomania.netlify.app for a mobile progressive webapp WIP demo.
+
 10/23/20
 ------
 - Convenience update! Device now flashes on boot and lets you toggle different things just with the reset button. The first flashes are in rapid succession. 2 flashes = BLE mode, 3 flashes = WiFi mode, 4 flashes = BT Serial (classic) mode. Then the device will give 3 slow blinks (once per second) after that.

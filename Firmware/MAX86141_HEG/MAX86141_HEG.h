@@ -19,7 +19,7 @@ bool newOutputFlag = false;
 bool RED_ON = false;
 bool IR_ON = false;
 bool AMBIENT = true;
-char * MODE = "SPO2"; //SPO2, DEBUG
+char * MODE = "SPO2"; //SPO2, DEBUG, FAST
 
 bool coreProgramEnabled = false;
 
@@ -250,15 +250,18 @@ void sampleHEG(){
           }
           lastSPO2Micros = currentMicros;
         }
-          sprintf(outputarr, "%lu|%0.1f|%0.1f|%0.4f|%0.1f|%d|%d\r\n",
+          sprintf(outputarr, "%lu|%0.0f|%0.0f|%0.4f|%0.0f|%d|%d\r\n",
             currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, lastValidHeartRate, lastValidSPO2);     
       }
       else if (MODE == "DEBUG"){
-          sprintf(outputarr, "RED: %0.1f \t IR: %0.1f \t RATIO: %0.4f \t AMBIENT: %0.1f\r\n",
+          sprintf(outputarr, "RED: %0.0f \t IR: %0.0f \t RATIO: %0.4f \t AMBIENT: %0.0f\r\n",
               RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG);     
         }
-      
-      else {
+      else if (MODE == "FAST"){
+          sprintf(outputarr, "%0.0f|%0.0f|%0.4f\r\n",
+              RED_AVG, IR_AVG, RATIO_AVG);   
+      }
+      else { //Default, get 1st and 2nd derivatives
           v1 = drdt;
           drdt = (RATIO_AVG - lastRatio) / (currentMicros - lastSampleMicros); //1st derivative of ratio, "Velocity"
           float ddrdt = (drdt - v1) / (currentMicros - lastSampleMicros); //2nd derivative of ratio, "Acceleration"
