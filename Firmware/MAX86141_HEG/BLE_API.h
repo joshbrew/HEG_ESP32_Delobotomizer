@@ -62,12 +62,18 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
 
       if (rxValue.find("t") != -1)
         { //Enable Sensor
-            //Exit Shutdown
-            HEG1.write_reg(REG_MODE_CONFIG, 0b00000000);
-            //Clear Interrupts
-            HEG1.read_reg(REG_INT_STAT_1);
-            HEG1.read_reg(REG_INT_STAT_2);
-            coreProgramEnabled = true;
+          //
+          // exit shutdown mode.
+          //
+          HEG1.write_reg(REG_MODE_CONFIG, 0x00);
+        
+          //
+          // Clear interrupts.
+          //
+          HEG1.read_reg(REG_INT_STAT_1);
+          HEG1.read_reg(REG_INT_STAT_2);
+       
+          coreProgramEnabled = true;
         }
         if (rxValue.find("f") != -1)
         { //Disable sensor

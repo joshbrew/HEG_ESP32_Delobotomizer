@@ -18,8 +18,7 @@ void setup(){
   Serial.println("Booting...");
 
   currentMicros = esp_timer_get_time();
-  setupHEG();
-  delay(100);
+  pinMode(5,OUTPUT);
   
   EEPROM.begin(512);
   int sleep = EEPROM.read(510);
@@ -117,6 +116,7 @@ void toggleCheck(){ //Checks toggles on initialization
       digitalWrite(5,LOW);
       delay(200);
       digitalWrite(5,HIGH);
+      Serial.println("Reset now to change the connection mode");
     }
     if((toggleSleep == true) && (BLEtoggle == false) && (currentMicros - bootMicros > 2000000) ){
       EEPROM.begin(512);
@@ -127,6 +127,7 @@ void toggleCheck(){ //Checks toggles on initialization
       digitalWrite(5,LOW);
       delay(200);
       digitalWrite(5,HIGH);
+      Serial.println("Reset now to reset the WiFi credentials");
     }
     if((BLEtoggle == true) && (WIFItoggle == false) && (currentMicros - bootMicros > 3000000) ){
       EEPROM.begin(512);
@@ -136,6 +137,10 @@ void toggleCheck(){ //Checks toggles on initialization
       digitalWrite(5,LOW);
       delay(200);
       digitalWrite(5,HIGH);
+      delay(100);
+      setupHEG();
+      delay(100);
+      Serial.println("Running...");
     }
   }
 }
