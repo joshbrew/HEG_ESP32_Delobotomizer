@@ -2,6 +2,10 @@
 *-*-*-*-*-*-*
 Changelog:
 *-*-*-*-*-*-*
+12/3/20
+------
+- fix to boot sequence not always running the sensor
+
 11/1/20
 ------
 - Increased exposure time of LEDs to 58.7uS (slightly brighter signal), halved sample average (16 samples @ 2048 sps)

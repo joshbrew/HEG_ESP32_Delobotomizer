@@ -136,7 +136,7 @@ void toggleCheck(){ //Checks toggles on initialization
       WIFItoggle = true;
       digitalWrite(5,LOW);
       delay(200);
-      digitalWrite(5,HIGH);
+      //digitalWrite(5,HIGH);
       delay(100);
       setupHEG();
       delay(100);
