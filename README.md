@@ -29,6 +29,7 @@ On boot:
 * Three fast blinks: WIFI mode
 * Four fast blinks: Bluetooth Classic (Serial) mode
 
+Then reset when:
 * Reset before first slow flash: Put device to sleep
 * Reset before second slow flash, after first: Change wireless mode (see above)
 * Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
