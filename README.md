@@ -16,7 +16,9 @@ Now follow the instructions on screen to browse for the .bin folder that you may
 
 ## Progressive Web App (WIP): https://hegalomania.netlify.app
 
-Our new preferred method for using the HEG, a state of the art Progressive Web App! Open this link to use your HEG in a Chrome browser or Android for instant access to using your device.
+Our new preferred method for using the HEG, a state of the art Progressive Web App! 
+
+Open this link to use your HEG in a Chrome browser or Android for instant access to using your device. This is being updated to a React app with a more familiar UI and a more concise code base to expand from.
 
 You may install it locally on desktop or mobile as well just like any app and create desktop shortcuts. For desktop open the settings bar in Chrome and click "Install HEG Alpha." The USB mode only works in chrome right now as it is a development feature. You can enable this feature by going to chrome://flags and enabling the "Experimental Web Platform features" flag. For mobile it should prompt you to install, if not find the install button in your chrome settings menu on mobile.
 
