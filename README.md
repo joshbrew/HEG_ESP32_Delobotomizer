@@ -25,13 +25,13 @@ You may install it locally on desktop or mobile as well just like any app and cr
 The new firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
 
 On boot:
-Two fast blinks: BLE mode
-Three fast blinks: WIFI mode
-Four fast blinks: Bluetooth Classic (Serial) mode
+* Two fast blinks: BLE mode
+* Three fast blinks: WIFI mode
+* Four fast blinks: Bluetooth Classic (Serial) mode
 
-Reset before first slow flash: Put device to sleep
-Reset before second slow flash, after first: Change wireless mode (see above)
-Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
+* Reset before first slow flash: Put device to sleep
+* Reset before second slow flash, after first: Change wireless mode (see above)
+* Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
 
 
 
