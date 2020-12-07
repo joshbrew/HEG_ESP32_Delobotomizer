@@ -22,6 +22,8 @@ Open this link to use your HEG in a Chrome browser or Android for instant access
 
 You may install it locally on desktop or mobile as well just like any app and create desktop shortcuts. For desktop open the settings bar in Chrome and click "Install HEG Alpha." The USB mode only works in chrome right now as it is a development feature. You can enable this feature by going to chrome://flags and enabling the "Experimental Web Platform features" flag. For mobile it should prompt you to install, if not find the install button in your chrome settings menu on mobile.
 
+![Boids](images/Capture.PNG)
+
 ## Boot routine
 
 The new firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
