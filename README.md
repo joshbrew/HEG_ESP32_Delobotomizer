@@ -14,19 +14,11 @@ In your preferred browser, enter "192.168.4.1" into the address bar. You should 
 
 Now follow the instructions on screen to browse for the .bin folder that you may download from this repo. Wait for it to finish uploading then reconnect to the HEG after that's taken care of if it does not do it automatically. Voila!
 
-## Chrome Extension
+## Progressive Web App (WIP): https://hegalomania.netlify.app
 
-This is my preferred way to interact with the HEG as it functions like a desktop app rather than dealing with the web interface (which does not work on older laptops), and allows Serial/Bluetooth Serial connectivity via the COM port browser in the top right corner of the UI. These are faster than WiFi transmission rates as well which is soft-limited at 20sps (while the device still runs at full speed but only reports a limited number of samples over WiFi)
+Our new preferred method for using the HEG, a state of the art Progressive Web App! Open this link to use your HEG in a Chrome browser or Android for instant access to using your device.
 
-First download this repository and extract the ChromeExtension folder.
-
-Now open Chrome and type in "chrome://extensions" into the address bar.
-
-Turn on Developer Mode in the top right hand corner and then click the "Load Unpacked" option that shows up.
-
-Browse for the extracted ChromeExtension folder and select it. You should see an icon show up.
-
-Now enter "chrome://apps" into the address bar and this will let you open the Chrome extension. If you right click the app icon on the page or in your OS taskbar, you can create a desktop shortcut or pin the app to the taskbar so it is accessible just like any other desktop software!
+You may install it locally on desktop or mobile as well just like any app and create desktop shortcuts. For desktop open the settings bar in Chrome and click "Install HEG Alpha." The USB mode only works in chrome right now as it is a development feature. You can enable this feature by going to chrome://flags and enabling the "Experimental Web Platform features" flag. For mobile it should prompt you to install, if not find the install button in your chrome settings menu on mobile.
 
 
 
