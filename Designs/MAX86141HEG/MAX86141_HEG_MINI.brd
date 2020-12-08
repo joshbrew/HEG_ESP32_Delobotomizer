@@ -368,6 +368,8 @@ Joshua Brewster - MIT License</text>
 <text x="186.3344" y="14.7574" size="0.6096" layer="21">-</text>
 <text x="190.5508" y="19.4818" size="0.6096" layer="21">+</text>
 <text x="186.2836" y="19.4818" size="0.6096" layer="21">-</text>
+<rectangle x1="150.7236" y1="14.8336" x2="152.654" y2="16.9418" layer="29"/>
+<rectangle x1="146.685" y1="15.0876" x2="148.8186" y2="17.4752" layer="29"/>
 </plain>
 <libraries>
 <library name="MAX86141">

@@ -54,52 +54,57 @@ void setup(){
     saveWiFiLogin(true,false,false,false); //Reset WiFi credentials
   }
 
+  setupHEG();
+
+  delay(100);
+  commandESP32('f');
+
   //Now set up the communication protocols (Only 1 active at a time for best results!)
   if(ComMode == 1) {
      setupBLE();
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
      delay(100);
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
   }
   else if(ComMode == 2) {
      setupBTSerial();
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
      delay(100);
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
      delay(100);
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
      delay(100);
-     digitalWrite(5,LOW);
+     commandESP32('t');
      delay(100);
-     digitalWrite(5,HIGH);
+     commandESP32('f');
   }
   else if(ComMode == 3) {
     Serial.println("USB Only configuration.");
     Serial.println("Sample commands: 't': Toggle HEG program ON, 'f': Toggle HEG program OFF, 'u': Toggle WiFi mode, 'b': Toggle BLE mode, 'B': Toggle Bluetooth Serial mode");
   }
   else {
-    setupWiFi();
-    digitalWrite(5,LOW);
-    delay(100);
-    digitalWrite(5,HIGH);
-    delay(100);
-    digitalWrite(5,LOW);
-    delay(100);
-    digitalWrite(5,HIGH);
-    delay(100);
-    digitalWrite(5,LOW);
-    delay(100);
-    digitalWrite(5,HIGH);
+     setupWiFi();
+     commandESP32('t');
+     delay(100);
+     commandESP32('f');
+     delay(100);
+     commandESP32('t');
+     delay(100);
+     commandESP32('f');
+     delay(100);
+     commandESP32('t');
+     delay(100);
+     commandESP32('f');
   }
   bootMicros = esp_timer_get_time();
 }
@@ -113,9 +118,9 @@ void toggleCheck(){ //Checks toggles on initialization
       EEPROM.write(511,1); // Now arm the BLE/WiFi toggle
       EEPROM.end();
       toggleSleep = true;
-      digitalWrite(5,LOW);
-      delay(200);
-      digitalWrite(5,HIGH);
+      commandESP32('t');
+      delay(100);
+      commandESP32('f');
       Serial.println("Reset now to change the connection mode");
     }
     if((toggleSleep == true) && (BLEtoggle == false) && (currentMicros - bootMicros > 2000000) ){
@@ -124,9 +129,9 @@ void toggleCheck(){ //Checks toggles on initialization
       EEPROM.write(509,1); // Now arm the Wifi reset toggle
       EEPROM.end();
       BLEtoggle = true;
-      digitalWrite(5,LOW);
-      delay(200);
-      digitalWrite(5,HIGH);
+      commandESP32('t');
+      delay(100);
+      commandESP32('f');
       Serial.println("Reset now to reset the WiFi credentials");
     }
     if((BLEtoggle == true) && (WIFItoggle == false) && (currentMicros - bootMicros > 3000000) ){
@@ -134,12 +139,7 @@ void toggleCheck(){ //Checks toggles on initialization
       EEPROM.write(509,0); //Disarm BLE/WiFi toggle
       EEPROM.end();
       WIFItoggle = true;
-      digitalWrite(5,LOW);
-      delay(200);
-      //digitalWrite(5,HIGH);
-      delay(100);
-      setupHEG();
-      delay(100);
+      commandESP32('t');
       Serial.println("Running...");
     }
   }

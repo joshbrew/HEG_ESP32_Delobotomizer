@@ -2,6 +2,10 @@
 *-*-*-*-*-*-*
 Changelog:
 *-*-*-*-*-*-*
+12/8/20
+------
+- Boot sequence better fix, red led is the indicator now. If you don't see the blinks when you power it, reset the device.
+- css adjustments
 12/3/20
 ------
 - fix to boot sequence not always running the sensor

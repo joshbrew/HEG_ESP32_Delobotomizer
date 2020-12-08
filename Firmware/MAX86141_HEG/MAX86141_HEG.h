@@ -15,11 +15,12 @@ static int spiClk = 1000000; // 8 MHz Maximum for MAX86141
 bool USE_USB = true;
 char outputarr[64];
 bool newOutputFlag = false;
+bool newEvent = false; //WiFi event task
 
 bool RED_ON = false;
 bool IR_ON = false;
 bool AMBIENT = true;
-char * MODE = "SPO2"; //SPO2, DEBUG, FAST
+char * MODE = ""; //SPO2, DEBUG, FAST
 
 bool coreProgramEnabled = false;
 
@@ -27,10 +28,10 @@ float RED_AVG, IR_AVG, AMBIENT_AVG, RATIO_AVG;
 float v1, drdt, lastRatio;
 
 //pulse Ox library variables
-CircularBuffer<uint32_t, 100> redBuffer;
-CircularBuffer<uint32_t, 100> irBuffer;
+CircularBuffer<uint32_t, 200> redBuffer;
+CircularBuffer<uint32_t, 200> irBuffer;
+int32_t bufCap = 200;
 
-int32_t bufCap = 100;
 int32_t spo2;
 int8_t validSPO2;
 int32_t lastValidSPO2;
@@ -263,10 +264,10 @@ void sampleHEG(){
       }
       else { //Default, get 1st and 2nd derivatives
           v1 = drdt;
-          drdt = (RATIO_AVG - lastRatio) / (currentMicros - lastSampleMicros); //1st derivative of ratio, "Velocity"
-          float ddrdt = (drdt - v1) / (currentMicros - lastSampleMicros); //2nd derivative of ratio, "Acceleration"
+          drdt = (RATIO_AVG - lastRatio) / ((currentMicros - lastSampleMicros)*.000001); //1st derivative of ratio, "Velocity"
+          float ddrdt = (drdt - v1) / ((currentMicros - lastSampleMicros)*0.000001); //2nd derivative of ratio, "Acceleration"
           
-          sprintf(outputarr, "%lu|%0.1f|%0.1f|%0.4f|%0.1f|%du|%du\r\n",
+          sprintf(outputarr, "%lu|%0.1f|%0.1f|%0.4f|%0.1f|%0.3f|%0.3f\r\n",
             currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, drdt, ddrdt);       
       }
       //Serial.print("Red: ");
@@ -280,9 +281,10 @@ void sampleHEG(){
       
       //Serial.println(outputarr);
 
-      newOutputFlag = true; //Flags for output functions    
+      newOutputFlag = true; //Flags for output functions 
+      newEvent = true;   
       lastSampleMicros = currentMicros; 
-
+      lastRatio=RATIO_AVG;
     }
 }
 
@@ -292,7 +294,12 @@ void HEG_core_loop() {
   
   if(currentMicros - coreNotEnabledMicros < sleepTimeout){ //Enter sleep mode after 10 min of inactivity (in microseconds).
     if(coreProgramEnabled == true){
-      sampleHEG();
+      if(MODE != "EXT_LED"){
+        sampleHEG();
+      }
+      else{
+        sampleExternalLEDPulse();
+      }
       coreNotEnabledMicros = currentMicros; // Core is enabled, sleep timer resets;
     }
   }

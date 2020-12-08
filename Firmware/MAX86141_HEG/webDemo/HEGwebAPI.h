@@ -962,12 +962,12 @@ class circleJS {
 
     document.getElementById("showhide").onclick = () => {
       if(this.hidden == false){
-        document.getElementById(canvasmenuId).style.display = 'none';
+        document.getElementById(this.canvasmenuId).style.display = 'none';
         document.getElementById("showhide").innerHTML = "Show UI";
         this.hidden = true;
       }
       else{
-        document.getElementById(canvasmenuId).style.display = '';
+        document.getElementById(this.canvasmenuId).style.display = '';
         document.getElementById("showhide").innerHTML = "Hide UI";
         this.hidden = false;
       }

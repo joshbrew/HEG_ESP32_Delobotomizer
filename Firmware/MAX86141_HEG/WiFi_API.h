@@ -245,14 +245,52 @@ void commandESP32(char received)
     coreProgramEnabled = false;
   }
   if (received == 'N'){
-    MODE = "SPO2";
+    if(MODE == "SPO2"){
+      MODE = "";
+    }
+    else {
+      MODE = "SPO2";
+    }
   }
   if (received == 'D'){ // Debug mode (for Arduino plotter)
-    MODE = "DEBUG";
+    if(MODE == "DEBUG"){
+      MODE = "";
     }
+    else {
+      MODE = "DEBUG";
+    }
+  }
   if (received == 'L'){ // External LED
-    MODE = "EXT_LED"; 
+    if(MODE == "EXT_LED"){
+      coreProgramEnabled=false;
+      MODE = "";
+      HEG1.write_reg(REG_MODE_CONFIG,0b00000010);
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100011); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //
+      HEG1.write_reg(REG_LED1_PA, 255); // 0 = 0mA, 255 = Max mA
+      HEG1.write_reg(REG_LED2_PA, 255);
+      HEG1.write_reg(REG_LED3_PA, 128);
+      HEG1.write_reg(REG_MODE_CONFIG, 0x00);
+      HEG1.read_reg(REG_INT_STAT_1);
+      HEG1.read_reg(REG_INT_STAT_2);
+      coreProgramEnabled=true;
     }
+    else{
+      coreProgramEnabled=false;
+      MODE = "EXT_LED"; 
+      HEG1.write_reg(REG_MODE_CONFIG,0b00000010);
+      HEG1.write_reg(REG_LED_SEQ_1, 0b10011001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //
+      HEG1.write_reg(REG_LED1_PA, 0); // 0 = 0mA, 255 = Max mA
+      HEG1.write_reg(REG_LED2_PA, 0);
+      HEG1.write_reg(REG_LED3_PA, 0);
+      MODE = "EXT_LED"; 
+      HEG1.write_reg(REG_MODE_CONFIG, 0x00);
+      HEG1.read_reg(REG_INT_STAT_1);
+      HEG1.read_reg(REG_INT_STAT_2);
+      coreProgramEnabled=true;
+    }
+  }
   if (received == 'l'){}
   if (received == 'r'){}
   if (received == 'c'){}
@@ -497,9 +535,10 @@ void printProgress(size_t prg, size_t sz) {
 void eventTask(void * param) {
   while(true) {
     eventMicros = currentMicros;
-    if(eventarr != outputarr) { //Prevents sending the same thing twice if the output is not updated
+    if(newEvent == true) { //Prevents sending the same thing twice if the output is not updated
       events.send(outputarr,"heg",esp_timer_get_time());
-      memcpy(eventarr,outputarr,64);
+      //memcpy(eventarr,outputarr,64);
+      newEvent = false;
     }
     //adc0 = ads.readADC_SingleEnded(adcChannel); // test fix for weird data bug
     vTaskDelay(eventDelayMS / portTICK_PERIOD_MS);

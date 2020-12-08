@@ -5,7 +5,7 @@ const char initWebapp[] PROGMEM = R"=====(
  
 // Initialize Session - undefined are default values
 //var s = new HEGwebAPI('',undefined,undefined,undefined,undefined,false); //HEGduino
-var s = new HEGwebAPI('',["us","Red","IR","Ambient","Ratio","HR","SPO2"],undefined,undefined,undefined,false); // Delobotomizer
+var s = new HEGwebAPI('',["us","Red","IR","Ambient","Ratio","drdt","ddrdt"],undefined,undefined,undefined,false); // Delobotomizer
 //var s = new HEGwebAPI('',["us","lRed","lIR","lRatio","cRed","cIR","cRatio","rRed","rIR","rRatio"],undefined,undefined,undefined,false); //Statechanger
 //var s = new HEGwebAPI('',["us","Ratio"],",",0,1,undefined,undefined,false); window.PEANUT = true; //Peanut (USB only)
 
@@ -635,6 +635,31 @@ makeTooltip("serialContainer",[-220,10],"Click 'Get' to get available Serial dev
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------
+
+
+if (navigator.userAgent.toLowerCase().indexOf("android") >= 0) {
+  document.getElementById("wifibutton").style.right = "";
+  document.getElementById("blebutton").style.right = "";
+  document.getElementById("switch").style.right = "";
+
+  document.getElementById("wifibutton").style.left = "470px";
+  document.getElementById("blebutton").style.left = "470px";
+  document.getElementById("switch").style.left = "600px";
+  
+  document.getElementById("wifibutton").style.top = "5px";
+
+  [...document.styleSheets[0].cssRules].find(x=> x.selectorText=='.modal_content')
+    .style.left='25%';
+
+  [...document.styleSheets[0].cssRules].find(x=> x.selectorText=='.modal_content')
+  .style.transform='translateX(-12.5%)';
+
+  if (chrome.serial || navigator.serial) { //fix for testing on pc
+    document.getElementById("serialmenu").style.display = "none";
+  }
+
+}
+
 
 */
 )=====";

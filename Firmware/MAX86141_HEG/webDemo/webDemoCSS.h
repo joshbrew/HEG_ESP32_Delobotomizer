@@ -6,8 +6,9 @@ const char webDemoCSS[] PROGMEM = R"=====(
 #blebutton {
   position: absolute;
   cursor: pointer;
-  top: 35px;
+  top: 40px;
   right: 120px;
+  min-width: 120px;
   height: 34px;
   opacity: 0.3;
   background-color: black;
@@ -27,8 +28,9 @@ const char webDemoCSS[] PROGMEM = R"=====(
 #wifibutton {
   position: absolute;
   cursor: pointer;
-  top: 35px;
-  right: 230px;
+  min-width: 120px;
+  top: 40px;
+  right: 240px;
   height: 34px;
   opacity: 0.3;
   background-color: black;
@@ -45,8 +47,24 @@ const char webDemoCSS[] PROGMEM = R"=====(
   opacity: 1.0; 
 }
 
-body{
-  min-width: 700px;
+#refreshSerial {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 120px;
+  height: 34px;
+  background-color: black;
+  color: white;
+  border: 2px ridge gray;
+  transition: all 0.2s ease-in-out;
+}
+
+#refreshSerial:active {
+  background-color: darkblue;
+} 
+
+#refreshSerial:hover {
+  opacity: 1.0; 
 }
 
 h1 {
@@ -80,7 +98,8 @@ h1 {
 
 .header {
   position: fixed;
-  top: 0px;
+  top: 90px;
+  left: 10px;
   float: left;
   width: 50%;
   color: white;
@@ -144,6 +163,7 @@ h1 {
 .canvasContainer {
   position:absolute;
   width: 100%;
+  min-width: 700px;
   top: 89px;
   height: 500px;
   margin-left: auto;
@@ -266,7 +286,7 @@ h1 {
   position:  absolute;
   left:      0px;
   width:     100%;
-  height:    260px;
+  height:    190px;
   top:       530px;
   min-width: 700px;
   z-index: 0;
@@ -409,10 +429,9 @@ h1 {
     .modal_content {
         z-index: 999;
         position: absolute;
-        
-        font-family:Arial, Helvetica, sans-serif;
-        transform: translateX(-50%);
         left: 50%;
+        transform: translateX(-50%);
+        font-family:Arial, Helvetica, sans-serif;
         max-height: 420px;
         overflow: auto;
         background: rgba(0, 78, 131, 0.637);
@@ -528,6 +547,7 @@ input:checked + .startslider:after {
 /* Set height of body and the document to 100% */
 body, html {
     width:  100%;
+    min-width: 700px;
     height: 100%;
     margin: 0;
     background-color: black;
@@ -550,7 +570,7 @@ body, html {
     cursor: pointer;
     padding: 10px;
     font-size: 1.3em;
-    width: 12.5%;
+    width: 150px;
     background-color: black;
     z-index: 995;
 }
