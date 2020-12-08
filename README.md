@@ -14,19 +14,29 @@ In your preferred browser, enter "192.168.4.1" into the address bar. You should 
 
 Now follow the instructions on screen to browse for the .bin folder that you may download from this repo. Wait for it to finish uploading then reconnect to the HEG after that's taken care of if it does not do it automatically. Voila!
 
-## Chrome Extension
+## Progressive Web App (WIP): https://hegalomania.netlify.app
 
-This is my preferred way to interact with the HEG as it functions like a desktop app rather than dealing with the web interface (which does not work on older laptops), and allows Serial/Bluetooth Serial connectivity via the COM port browser in the top right corner of the UI. These are faster than WiFi transmission rates as well which is soft-limited at 20sps (while the device still runs at full speed but only reports a limited number of samples over WiFi)
+Our new preferred method for using the HEG, a state of the art Progressive Web App! 
 
-First download this repository and extract the ChromeExtension folder.
+Open this link to use your HEG in a Chrome browser or Android for instant access to using your device. This is being updated to a React app with a more familiar UI and a more concise code base to expand from.
 
-Now open Chrome and type in "chrome://extensions" into the address bar.
+You may install it locally on desktop or mobile as well just like any app and create desktop shortcuts. For desktop open the settings bar in Chrome and click "Install HEG Alpha." The USB mode only works in chrome right now as it is a development feature. You can enable this feature by going to chrome://flags and enabling the "Experimental Web Platform features" flag. For mobile it should prompt you to install, if not find the install button in your chrome settings menu on mobile.
 
-Turn on Developer Mode in the top right hand corner and then click the "Load Unpacked" option that shows up.
+![Boids](images/Capture.PNG)
 
-Browse for the extracted ChromeExtension folder and select it. You should see an icon show up.
+## Boot routine
 
-Now enter "chrome://apps" into the address bar and this will let you open the Chrome extension. If you right click the app icon on the page or in your OS taskbar, you can create a desktop shortcut or pin the app to the taskbar so it is accessible just like any other desktop software!
+The new firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
+
+On boot:
+* Two fast blinks: BLE mode
+* Three fast blinks: WIFI mode
+* Four fast blinks: Bluetooth Classic (Serial) mode
+
+Then reset when:
+* Reset before first slow flash: Put device to sleep
+* Reset before second slow flash, after first: Change wireless mode (see above)
+* Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
 
 
 
