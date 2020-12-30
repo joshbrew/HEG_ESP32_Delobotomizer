@@ -2,7 +2,10 @@
 
 Official repository for the HEGduino V2 Delobotomizer firmware, software, and designs.
 
-This repo is being updated shortly with more detailed instructions and a new whitepaper. For now, you can follow along from the [original repo](https://github.com/moothyknight/HEG_ESP32) on how to install the chrome extension. 
+### [Getting Started (click me)](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/GettingStarted.md)
+### [Whitepaper](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Open%20Source%20HEG_FNIRS%20Whitepaper.pdf)
+
+For now, you can follow along from the [original repo](https://github.com/moothyknight/HEG_ESP32) on how to install the chrome extension. 
 
 ## Firmware
 
@@ -38,7 +41,18 @@ Then reset when:
 * Reset before second slow flash, after first: Change wireless mode (see above)
 * Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
 
+## Device Commands (accessible via app (Send Command button) or serial monitor)
 
-
-
+* 't' - Turn sensor ON (automatic)
+* 'f' - Turn sensor OFF, device will go to sleep after 10min of inactivity
+* 'b' - BLE mode toggle. Toggles back to WiFi mode.
+* 'B' - Bluetooth Serial toggle. Toggles back to WiFi mode.
+* 'W' - Reset WiFi credentials (if it won't connect to your router)
+* 'R' - Reboot device
+* 'S' - Enter deep sleep mode e.g. to save battery
+* 'u' - USB only output mode (no wireless signals)
+* 'o' - Fast output mode (<20 byte packets for Android Web BLE)
+* 'L' - External LED mode, configured for pins 12 and 14 to run LEDs and be sampled.
+* 'N' - Toggle SPO2 output (experimental, not working properly yet)
+* 'D' - Toggle Debug output (for using Arduino's graphing)
 
