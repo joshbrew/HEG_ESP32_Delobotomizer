@@ -43,16 +43,16 @@ Then reset when:
 
 ## Device Commands (accessible via app (Send Command button) or serial monitor)
 
-'t' - Turn sensor ON (automatic)
-'f' - Turn sensor OFF, device will go to sleep after 10min of inactivity
-'b' - BLE mode toggle. Toggles back to WiFi mode.
-'B' - Bluetooth Serial toggle. Toggles back to WiFi mode.
-'W' - Reset WiFi credentials (if it won't connect to your router)
-'R' - Reboot device
-'S' - Enter deep sleep mode e.g. to save battery
-'u' - USB only output mode (no wireless signals)
-'o' - Fast output mode (<20 byte packets for Android Web BLE)
-'L' - External LED mode, configured for pins 12 and 14 to run LEDs and be sampled.
-'N' - Toggle SPO2 output (experimental, not working properly yet)
-'D' - Toggle Debug output (for using Arduino's graphing)
+* 't' - Turn sensor ON (automatic)
+* 'f' - Turn sensor OFF, device will go to sleep after 10min of inactivity
+* 'b' - BLE mode toggle. Toggles back to WiFi mode.
+* 'B' - Bluetooth Serial toggle. Toggles back to WiFi mode.
+* 'W' - Reset WiFi credentials (if it won't connect to your router)
+* 'R' - Reboot device
+* 'S' - Enter deep sleep mode e.g. to save battery
+* 'u' - USB only output mode (no wireless signals)
+* 'o' - Fast output mode (<20 byte packets for Android Web BLE)
+* 'L' - External LED mode, configured for pins 12 and 14 to run LEDs and be sampled.
+* 'N' - Toggle SPO2 output (experimental, not working properly yet)
+* 'D' - Toggle Debug output (for using Arduino's graphing)
 
