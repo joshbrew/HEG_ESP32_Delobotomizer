@@ -20,7 +20,8 @@ bool newEvent = false; //WiFi event task
 bool RED_ON = false;
 bool IR_ON = false;
 bool AMBIENT = true;
-char * MODE = ""; //SPO2, DEBUG, FAST
+char * MODE = ""; //SPO2, DEBUG, FAST, EXT_LED (raw ambient mode with GPIO timer based external leds)
+char * LEDPA = "FULL"; //FULL, HALF
 
 bool coreProgramEnabled = false;
 
@@ -66,13 +67,13 @@ unsigned long LEDFrequency = 7500; //Time (in Microseconds) between each change 
 #define VSPI_MOSI             MOSI
 #define VSPI_SCLK             SCK
 #define VSPI_SS               SS_PIN
-  
+
 #define INT_PIN               17
 
 #define GPIO1_PIN             16
 #define GPIO2_PIN             4
 
-#define RED                   12
+#define RED                   12 //External LED gpio
 #define IR                    14
 
 void setupHEG() {
@@ -107,6 +108,7 @@ void setupHEG() {
   //Serial.println("Init Pulse Ox 1...");
   HEG1.setDebug(false);
   HEG1.init(spiClk);
+  //HEG1.begin();
 
   //Serial.println(pulseOx1.read_reg(0x0D));
 
@@ -117,9 +119,9 @@ void setupHEG() {
 }
 
 void sampleExternalLEDPulse(){
-    if(currentMicros - LEDMicros > LEDFrequency){  
+    if(currentMicros - LEDMicros > LEDFrequency){
         if(HEG1.read_reg(REG_FIFO_DATA_COUNT) >= 6){ //1 full sequence is 6 samples.
-                  
+
             HEG1.device_data_read();
             int led1A = HEG1.led1A[0];
             int led2A = HEG1.led2A[0];
@@ -147,7 +149,7 @@ void sampleExternalLEDPulse(){
                 IR_AVG = 0;
                 AMBIENT_AVG = 0;
             }
-        }   
+        }
 
         if(IR_ON) {
             digitalWrite(RED,LOW);
@@ -176,7 +178,7 @@ void sampleExternalLEDPulse(){
 
         delayMicroseconds(2500);
         HEG1.device_data_read();//Clear buffer (lets slower LEDs warm up and prevents overlap)
-    
+
     }
 }
 
@@ -184,7 +186,7 @@ void sampleExternalLEDPulse(){
 void debugPrintLatestValues(){
     HEG1.device_data_read();
     int led1A = HEG1.led1A[0];
-    int led2A = HEG1.led2A[0]; 
+    int led2A = HEG1.led2A[0];
     int led1B = HEG1.led1B[0];
     int led2B = HEG1.led2B[0];
     int led3A = HEG1.led3A[0];
@@ -216,7 +218,7 @@ void outputSerial(){
 
 void sampleHEG(){
     if(HEG1.read_reg(REG_FIFO_DATA_COUNT) >= 6){ //1 full sequence is 6 samples.
-      
+
       HEG1.device_data_read();
       int led1A = HEG1.led1A[0];
       int led2A = HEG1.led2A[0];
@@ -234,8 +236,8 @@ void sampleHEG(){
       if(MODE == "SPO2"){
         redBuffer.push(RED_AVG);
         irBuffer.push(IR_AVG);
-  
-        if(currentMicros - lastSPO2Micros > SPO2Freq){ //        
+
+        if(currentMicros - lastSPO2Micros > SPO2Freq){ //
           if(redBuffer.isFull()){
             uint32_t rBufTemp[bufCap];
             uint32_t irBufTemp[bufCap];
@@ -243,32 +245,32 @@ void sampleHEG(){
               rBufTemp[i] = redBuffer[i];
               irBufTemp[i] = irBuffer[i];
             }
-            
+
             maxim_heart_rate_and_oxygen_saturation(rBufTemp, bufCap, irBufTemp, &spo2, &validSPO2, &heartRate, &validHeartRate);
-          
+
             if(validSPO2 == 1){ lastValidSPO2 = spo2;}
             if(validHeartRate == 1) { lastValidHeartRate = heartRate; }
           }
           lastSPO2Micros = currentMicros;
         }
           sprintf(outputarr, "%lu|%0.0f|%0.0f|%0.4f|%0.0f|%d|%d\r\n",
-            currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, lastValidHeartRate, lastValidSPO2);     
+            currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, lastValidHeartRate, lastValidSPO2);
       }
       else if (MODE == "DEBUG"){
           sprintf(outputarr, "RED: %0.0f \t IR: %0.0f \t RATIO: %0.4f \t AMBIENT: %0.0f\r\n",
-              RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG);     
+              RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG);
         }
       else if (MODE == "FAST"){
           sprintf(outputarr, "%0.0f|%0.0f|%0.4f\r\n",
-              RED_AVG, IR_AVG, RATIO_AVG);   
+              RED_AVG, IR_AVG, RATIO_AVG);
       }
       else { //Default, get 1st and 2nd derivatives
           v1 = drdt;
           drdt = (RATIO_AVG - lastRatio) / ((currentMicros - lastSampleMicros)*.000001); //1st derivative of ratio, "Velocity"
           float ddrdt = (drdt - v1) / ((currentMicros - lastSampleMicros)*0.000001); //2nd derivative of ratio, "Acceleration"
-          
+
           sprintf(outputarr, "%lu|%0.1f|%0.1f|%0.4f|%0.1f|%0.3f|%0.3f\r\n",
-            currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, drdt, ddrdt);       
+            currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, drdt, ddrdt);
       }
       //Serial.print("Red: ");
       //Serial.print(RED_AVG);
@@ -277,13 +279,13 @@ void sampleHEG(){
       //Serial.print(IR_AVG);
       //Serial.print("\t");
       //Serial.print("Ambient: ");
-      //Serial.println(AMBIENT_AVG); 
-      
+      //Serial.println(AMBIENT_AVG);
+
       //Serial.println(outputarr);
 
-      newOutputFlag = true; //Flags for output functions 
-      newEvent = true;   
-      lastSampleMicros = currentMicros; 
+      newOutputFlag = true; //Flags for output functions
+      newEvent = true;
+      lastSampleMicros = currentMicros;
       lastRatio=RATIO_AVG;
     }
 }
@@ -291,7 +293,7 @@ void sampleHEG(){
 
 // the loop function runs over and over again until power down or reset
 void HEG_core_loop() {
-  
+
   if(currentMicros - coreNotEnabledMicros < sleepTimeout){ //Enter sleep mode after 10 min of inactivity (in microseconds).
     if(coreProgramEnabled == true){
       if(MODE != "EXT_LED"){
@@ -307,7 +309,7 @@ void HEG_core_loop() {
     Serial.println("HEG going to sleep now... Reset the power to turn device back on!");
     delay(1000);
     esp_deep_sleep_start(); //Ends the loop() until device is reset.
-  }  
+  }
 }
 
 #endif

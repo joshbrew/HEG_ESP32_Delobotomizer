@@ -157,7 +157,7 @@ Sample Average SMP_AVE
 Hex     Sample Average
 0x0     1
 0x1     2
-0x2     4    
+0x2     4
 0x3     8
 0x4     16
 0x5     32
@@ -181,7 +181,7 @@ Hex     Time
 LED settings (4 bit address options for REG_LED_SEQ 1, 2, and 3)
 Data outputted in order of setting, then anything set to 0x00 won't be outputted to free up the FIFO for more data.
 Bin     Setting
-0000    NONE 
+0000    NONE
 0001    LED1
 0010    LED2
 0011    LED3
@@ -203,7 +203,7 @@ Hex     Amps
 0x3     124mA
 
 LED Settling LED_SETLNG
-bits    Time    
+bits    Time
 00      4uS
 01      6uS (default)
 10      8uS
@@ -216,7 +216,7 @@ Hex         Photo Diode Capacitance
 0x110       130pF to 260pF
 0x111       260pF to 520pF
 
-Select digital filter type DIG_FILT_SEL 
+Select digital filter type DIG_FILT_SEL
 0x0     Use CDM
 0x1     Use FDM
 */
@@ -269,7 +269,7 @@ class MAX86141 {
     int SS;
     int spiClk = 1000000; //8MHz clock on MAX86141 Max, only 200KHz necessary.
     bool debug = false;
-    
+
     int led1A[128];
     int led1B[128];
     int led2A[128];
@@ -277,13 +277,15 @@ class MAX86141 {
     int led3A[128];
     int led3B[128];
     //led4A thru led6B
-    
+
     uint8_t       m_tx_buf[3];                       /**< TX buffer. */
     uint8_t       m_rx_buf[3];                       /**< RX buffer. */
     const uint8_t m_length = sizeof(m_tx_buf);       /**< Transfer length. */
 
     //Functions
     void init(int setSpiClk);
+    void begin();
+    void stop();
     void write_reg(uint8_t address, uint8_t data_in);
     uint8_t read_reg(uint8_t address);
     void fifo_intr();
@@ -296,4 +298,4 @@ class MAX86141 {
     void clearInt();
 };
 
-#endif 
+#endif

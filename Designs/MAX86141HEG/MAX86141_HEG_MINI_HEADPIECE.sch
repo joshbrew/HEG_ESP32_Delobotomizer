@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1432,12 +1432,24 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="-30.734" y1="91.948" x2="-24.638" y2="91.948" width="0.1524" layer="91"/>
 <label x="-25.146" y="91.948" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="JP4" gate="A" pin="6"/>
+<wire x1="-86.614" y1="93.472" x2="-86.36" y2="93.472" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="93.472" x2="-86.36" y2="86.36" width="0.1524" layer="91"/>
+<label x="-87.63" y="86.106" size="1.778" layer="95" rot="R270"/>
+</segment>
 </net>
 <net name="GPIO2" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="3"/>
 <wire x1="-30.734" y1="89.408" x2="-24.892" y2="89.408" width="0.1524" layer="91"/>
 <label x="-25.146" y="89.662" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="A" pin="5"/>
+<wire x1="-89.154" y1="93.472" x2="-88.9" y2="93.472" width="0.1524" layer="91"/>
+<wire x1="-88.9" y1="93.472" x2="-88.9" y2="86.36" width="0.1524" layer="91"/>
+<label x="-90.17" y="85.852" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="INT" class="0">

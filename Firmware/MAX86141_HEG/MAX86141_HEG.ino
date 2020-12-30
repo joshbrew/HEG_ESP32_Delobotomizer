@@ -56,7 +56,6 @@ void setup(){
 
   setupHEG();
 
-  delay(100);
   commandESP32('f');
 
   //Now set up the communication protocols (Only 1 active at a time for best results!)

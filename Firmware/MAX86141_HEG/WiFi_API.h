@@ -291,8 +291,22 @@ void commandESP32(char received)
       coreProgramEnabled=true;
     }
   }
-  if (received == 'l'){}
-  if (received == 'r'){}
+  if (received == 'i'){ //change intensity
+    if(LEDPA == "FULL"){
+      HEG1.write_reg(REG_LED1_PA, 128); // 0 = 0mA, 255 = Max mA
+      HEG1.write_reg(REG_LED2_PA, 128);
+      HEG1.write_reg(REG_LED3_PA, 128);
+      LEDPA = "HALF";
+    }
+    else {
+      HEG1.write_reg(REG_LED1_PA, 255); // 0 = 0mA, 255 = Max mA
+      HEG1.write_reg(REG_LED2_PA, 255);
+      HEG1.write_reg(REG_LED3_PA, 255);
+      LEDPA = "FULL";
+    }
+    }
+  if (received == 'r'){ //Higher intensity
+    }
   if (received == 'c'){}
   if (received == 'o'){
     if(MODE == "SPO2"){

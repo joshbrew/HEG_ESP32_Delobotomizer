@@ -17,7 +17,7 @@ void MAX86141::write_reg(uint8_t address, uint8_t data_in)
         Serial.print("|");
         Serial.println(m_tx_buf[2]);
     }
-/**< A buffer for incoming data. */    
+/**< A buffer for incoming data. */
 
     m_rx_buf[0] = 0;
     m_rx_buf[1] = 0;
@@ -30,7 +30,7 @@ void MAX86141::write_reg(uint8_t address, uint8_t data_in)
     digitalWrite(SS, HIGH);
     spi->endTransaction();
     digitalWrite(SS, LOW);
-    
+
     m_rx_buf[0] = m_tx_buf[0];
     m_rx_buf[1] = m_tx_buf[1];
     m_rx_buf[2] = m_tx_buf[2];
@@ -54,7 +54,7 @@ uint8_t MAX86141::read_reg(uint8_t address)
     m_tx_buf[1] = READ_EN;  //Set Read mode
     m_tx_buf[2] = 0x00;     //
 
-/**< A buffer for incoming data. */ 
+/**< A buffer for incoming data. */
     m_rx_buf[0] = 0;
     m_rx_buf[1] = 0;
     m_rx_buf[2] = 0;
@@ -122,7 +122,7 @@ void MAX86141::init(int newSpiClk=1000000)
 	write_reg(REG_LED_RANGE_1, 0b00111111); // xx,LED3,LED2,LED1. 00,01,10,11 low to high
 	write_reg(REG_LED1_PA, 255); // 0 = 0mA, 255 = Max mA
 	write_reg(REG_LED2_PA, 255);
-    write_reg(REG_LED3_PA, 255);
+    write_reg(REG_LED3_PA, 128);
     //write_reg(REG_LED3_PA, 255);
 
 	//
@@ -136,7 +136,7 @@ void MAX86141::init(int newSpiClk=1000000)
 	write_reg(REG_FIFO_CONFIG_2, 0b00001101);
 	//write_reg(REG_LED_SEQ_1, 0x21);
 	//write_reg(REG_LED_SEQ_2, 0x05);
-	write_reg(REG_LED_SEQ_1, 0b00100011); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+	write_reg(REG_LED_SEQ_1, 0b00100011); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
 	write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //
     write_reg(REG_LED_SEQ_3, 0x00); // 5 | 6
 
@@ -146,11 +146,20 @@ void MAX86141::init(int newSpiClk=1000000)
 	//
 	write_reg(REG_INT_EN_1, 0x00);
 
+
+	// Return REG_SYS_CNTRL which should be 0x00.
 	//
+	temp = read_reg(REG_MODE_CONFIG);
+    //Thank you Michael Lyons!
+}
+
+void MAX86141::begin() {
+    //
 	// exit shutdown mode.
 	//
 	read_reg(REG_MODE_CONFIG);
-	temp &= ~0x02;
+	uint8_t temp;
+    temp &= ~0x02;
 	write_reg(REG_MODE_CONFIG, temp);
 
 	//
@@ -160,10 +169,10 @@ void MAX86141::init(int newSpiClk=1000000)
 	read_reg(REG_INT_STAT_2);
 
 	//
-	// Return REG_SYS_CNTRL which should be 0x00.
-	//
-	temp = read_reg(REG_MODE_CONFIG);
-    //Thank you Michael Lyons!
+}
+
+void MAX86141::stop() {
+    write_reg(REG_MODE_CONFIG,0b00000010);
 }
 
 /* inspired by pseudo-code available on MAX86141 datasheet */
@@ -172,8 +181,8 @@ void MAX86141::device_data_read(void)
     uint8_t sample_count;
     uint8_t reg_val;
     uint8_t dataBuf[2304]; ///128 FIFO samples, 3 channels, 2 PDs, 3 bytes/channel 128*3*2*3 = 2304 byte buffer
-      
-    sample_count = read_reg(REG_FIFO_DATA_COUNT); //number of items available in FIFO to read 
+
+    sample_count = read_reg(REG_FIFO_DATA_COUNT); //number of items available in FIFO to read
 
     if(debug == true){
         Serial.println("Sample Count");
@@ -184,7 +193,7 @@ void MAX86141::device_data_read(void)
 
     /*suitable formatting of data for 2 LEDs*/
     int i = 0;
-    
+
     for (i = 0; i < sample_count; i++)
     {
         int off = 0;
@@ -226,18 +235,18 @@ void MAX86141::device_data_read(void)
 
             }
         }
-    } 
-    
+    }
+
     clearInt();
 }
 
 void MAX86141::fifo_intr()
 {
     uint8_t count;
-    count = read_reg(REG_FIFO_DATA_COUNT); 
+    count = read_reg(REG_FIFO_DATA_COUNT);
 
     if (count == 0x80) //indicates full FIFO
-    { 
+    {
         device_data_read();
     }
  }
@@ -247,7 +256,7 @@ void MAX86141::fifo_intr()
 void MAX86141::read_fifo(uint8_t data_buffer[], uint8_t count)
 {
     data_buffer[0] = REG_FIFO_DATA;
-	data_buffer[1] = READ_EN;		
+	data_buffer[1] = READ_EN;
 	digitalWrite(SS, HIGH);
 	spi->beginTransaction(SPISettings(spiClk, MSBFIRST, SPI_MODE3));
 	digitalWrite(SS, LOW);
