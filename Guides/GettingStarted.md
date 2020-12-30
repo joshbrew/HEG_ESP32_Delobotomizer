@@ -17,7 +17,7 @@
 * Open a browser (Chrome preferably) and enter [http://192.168.4.1](http://192.168.4.1) or [http://esp32.local](http://esp32.local) if that doesn't work
 
 ### Quick Training Guide
-* The ratio represents the relative blood-oxygen content in your brain. A higher ratio represents a higher relative blood-oxygen saturation in your brain tissue. The score is simply an exaggerated ratio with the baseline 0 point set at the initial ratio.
+* The ratio represents the relative blood-oxygen content in your brain. A higher ratio represents a higher relative blood-oxygen saturation in your brain tissue. The score is simply an exaggerated ratio with the baseline 0 point set at the initial ratio. The different visuals (accessible via the Feedback menu) react to the score.
 * Simply perform 6 breath per minute, deep cyclical breathing exercise for 5-15 minutes (no pauses, just do a chest-expanding, relaxing inhale and exhale wave pattern). Stop if you feel any strain.
 * Once your breathing is stabilized, try to notice what thoughts or distractions come up and see if you notice any correlation with the change in score or ratio on-screen. You may quickly find that stress and focus can have a big effect on the patterns, it may take a few sessions to notice.
 * Use the combination of stable breathing and awareness of your own thoughts to try to optimize the increase in your score. Your ratio will only increase so much before going back to baseline, which is your brain doing work then relaxing again. You may even feel fatigue when this occurs, which is a good indicator to stop.
