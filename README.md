@@ -3,7 +3,7 @@
 Official repository for the HEGduino V2 Delobotomizer firmware, software, and designs.
 
 ### [Getting Started (click me)](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/GettingStarted.md)
-### [Whitepaper](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Open%20Source%20HEG_FNIRS%20Whitepaper.pdf)
+### [Whitepaper](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Open%20Source%20HEG_FNIRS%20Whitepaper.pdf)
 
 For now, you can follow along from the [original repo](https://github.com/moothyknight/HEG_ESP32) on how to install the chrome extension. 
 
