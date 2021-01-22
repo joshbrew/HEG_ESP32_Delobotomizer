@@ -6,6 +6,52 @@
 #include "spo2_algorithm.h"
 #include <CircularBuffer.h>
 #include <esp_timer.h>
+#include "IIRfilter.h"
+
+bool USE_FILTERS = true;
+bool USE_DC_FILTER = false;
+
+float sps = (2048/16)/3; //Samplerate per site: 
+
+IIRnotch notch50_R(50,sps,0.5);
+IIRnotch notch50_I(50,sps,0.5);
+IIRnotch notch50_A(50,sps,0.5);
+
+IIRnotch notch50_R2(50,sps,0.5);
+IIRnotch notch50_I2(50,sps,0.5);
+IIRnotch notch50_A2(50,sps,0.5);
+
+IIRnotch notch50_R3(50,sps,0.5);
+IIRnotch notch50_I3(50,sps,0.5);
+IIRnotch notch50_A3(50,sps,0.5);
+
+IIRnotch notch60_R(60,sps,0.5);
+IIRnotch notch60_I(60,sps,0.5);
+IIRnotch notch60_A(60,sps,0.5);
+
+IIRnotch notch60_R2(60,sps,0.5);
+IIRnotch notch60_I2(60,sps,0.5);
+IIRnotch notch60_A2(60,sps,0.5);
+
+IIRnotch notch60_R3(60,sps,0.5);
+IIRnotch notch60_I3(60,sps,0.5);
+IIRnotch notch60_A3(60,sps,0.5);
+
+IIRlowpass lp_R(40,sps);
+IIRlowpass lp_I(40,sps);
+IIRlowpass lp_A(40,sps);
+
+IIRlowpass lp_R2(40,sps);
+IIRlowpass lp_I2(40,sps);
+IIRlowpass lp_A2(40,sps);
+
+IIRlowpass lp_R3(40,sps);
+IIRlowpass lp_I3(40,sps);
+IIRlowpass lp_A3(40,sps);
+
+DCBlocker dc_R(0.995);
+DCBlocker dc_I(0.995);
+DCBlocker dc_A(0.995);
 
 MAX86141 HEG1;
 //MAX86141 HEG2;
@@ -13,6 +59,7 @@ MAX86141 HEG1;
 static int spiClk = 1000000; // 8 MHz Maximum for MAX86141
 
 bool USE_USB = true;
+
 char outputarr[64];
 bool newOutputFlag = false;
 bool newEvent = false; //WiFi event task
@@ -230,6 +277,52 @@ void sampleHEG(){
       AMBIENT_AVG = (led3A + led3B)*0.5;
       IR_AVG = (led2A + led2B)*0.5;
       RED_AVG = (led1A + led1B)*0.5;//ALC circuit automatically cancels Ambient
+     
+      if(USE_FILTERS == true){
+        if(USE_DC_FILTER == true){
+          RED_AVG = dc_R.apply(RED_AVG);
+          IR_AVG = dc_I.apply(IR_AVG);
+          AMBIENT_AVG = dc_A.apply(AMBIENT_AVG);
+        }
+        RED_AVG = notch50_R.apply(RED_AVG);
+        RED_AVG = notch50_R2.apply(RED_AVG);
+        RED_AVG = notch50_R3.apply(RED_AVG);
+        
+        RED_AVG = notch60_R.apply(RED_AVG);
+        RED_AVG = notch60_R2.apply(RED_AVG);
+        RED_AVG = notch60_R3.apply(RED_AVG);
+        
+        RED_AVG = lp_R.apply(RED_AVG);
+        RED_AVG = lp_R2.apply(RED_AVG);
+        RED_AVG = lp_R3.apply(RED_AVG);
+
+        
+        IR_AVG = notch50_I.apply(IR_AVG);
+        IR_AVG = notch50_I2.apply(IR_AVG);
+        IR_AVG = notch50_I3.apply(IR_AVG);
+        
+        IR_AVG = notch60_I.apply(IR_AVG);
+        IR_AVG = notch60_I2.apply(IR_AVG);
+        IR_AVG = notch60_I3.apply(IR_AVG);
+        
+        IR_AVG = lp_I.apply(IR_AVG);
+        IR_AVG = lp_I2.apply(IR_AVG);
+        IR_AVG = lp_I3.apply(IR_AVG);
+
+        
+        AMBIENT_AVG = notch50_A.apply(AMBIENT_AVG);
+        AMBIENT_AVG = notch50_A2.apply(AMBIENT_AVG);
+        AMBIENT_AVG = notch50_A3.apply(AMBIENT_AVG);
+        
+        AMBIENT_AVG = notch60_A.apply(AMBIENT_AVG);
+        AMBIENT_AVG = notch60_A2.apply(AMBIENT_AVG);
+        AMBIENT_AVG = notch60_A3.apply(AMBIENT_AVG);
+        
+        AMBIENT_AVG = lp_A.apply(AMBIENT_AVG);
+        AMBIENT_AVG = lp_A2.apply(AMBIENT_AVG);
+        AMBIENT_AVG = lp_A3.apply(AMBIENT_AVG);
+      }
+      
       RATIO_AVG = RED_AVG/IR_AVG;
 
 

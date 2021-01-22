@@ -308,6 +308,22 @@ void commandESP32(char received)
   if (received == 'r'){ //Higher intensity
     }
   if (received == 'c'){}
+  if (received == 'F'){
+    if(USE_FILTERS == true){
+      USE_FILTERS = false;
+    }
+    else {
+      USE_FILTERS = true;
+    }
+  }
+  if (received == 'X'){
+    if(USE_DC_FILTER == true){
+      USE_DC_FILTER = false;
+    }
+    else {
+      USE_DC_FILTER = true;
+    }
+  }
   if (received == 'o'){
     if(MODE == "SPO2"){
       MODE = "FAST";

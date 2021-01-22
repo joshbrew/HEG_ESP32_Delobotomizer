@@ -2,6 +2,12 @@
 *-*-*-*-*-*-*
 Changelog:
 *-*-*-*-*-*-*
+1/21/21
+------
+- Noise B gone! Implemented notch and low pass filtering (3x 50Hz notch,3x 60Hz notch, and 3x 40Hz low pass). AC will never bother you again. I should up the output sampling rate again.
+- MASSIVE upgrade to the software coming soon
+- 'F' command toggles filters. 'X' command toggles a DC filter. 
+
 12/8/20
 ------
 - Boot sequence better fix, red led is the indicator now. If you don't see the blinks when you power it, reset the device.

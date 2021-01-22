@@ -88,6 +88,22 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             MODE = "SPO2";
           }
         }
+        if (rxValue.find("F") != -1){
+          if(USE_FILTERS == true){
+            USE_FILTERS = false;
+          }
+          else {
+            USE_FILTERS = true;
+          }
+        }
+        if (rxValue.find("X") != -1){
+          if(USE_DC_FILTER == true){
+            USE_DC_FILTER = false;
+          }
+          else {
+            USE_DC_FILTER = true;
+          }
+        }
         if (rxValue.find("L") != -1) {}
         if (rxValue.find("l") != -1) {}
         if (rxValue.find("c") != -1) {}
