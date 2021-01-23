@@ -14,9 +14,9 @@ BluetoothSerial SerialBT;
 
 BLECharacteristic *pCharacteristic;
 
-#define SERVICE_UUID           "28f3fd99-f063-478b-a316-a0ae2d2eb615" // UART service UUID
-#define CHARACTERISTIC_UUID_RX "28f3fd99-f063-478b-a316-a0ae2d2eb615"
-#define CHARACTERISTIC_UUID_TX "28f3fd99-f063-478b-a316-a0ae2d2eb615"
+#define SERVICE_UUID           "6E400001-B5A3-F393-E0A9-E50E24DCCA9E" // UART service UUID
+#define CHARACTERISTIC_UUID_RX "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
+#define CHARACTERISTIC_UUID_TX "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
 
 bool USE_BT = false;          
 bool USE_BLE = false;         
@@ -81,11 +81,19 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             coreProgramEnabled = false;
         }
         if (rxValue.find("o") != -1) {
-          if(MODE == "SPO2") {
+          if(MODE != "FAST") {
             MODE = "FAST";
           }
           else {
+            MODE = "";
+          }
+        }
+        if (rxValue.find("h") != -1) {
+          if(MODE != "SPO2") {
             MODE = "SPO2";
+          }
+          else {
+            MODE = "";
           }
         }
         if (rxValue.find("F") != -1){

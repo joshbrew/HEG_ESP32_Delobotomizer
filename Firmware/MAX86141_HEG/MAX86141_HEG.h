@@ -11,7 +11,7 @@
 bool USE_FILTERS = true;
 bool USE_DC_FILTER = false;
 
-float sps = (2048/16)/3; //Samplerate per site: 
+float sps = 2048/3; //Samplerate per site: 
 
 IIRnotch notch50_R(50,sps,0.5);
 IIRnotch notch50_I(50,sps,0.5);
@@ -265,7 +265,7 @@ void outputSerial(){
 
 void sampleHEG(){
     if(HEG1.read_reg(REG_FIFO_DATA_COUNT) >= 6){ //1 full sequence is 6 samples.
-
+      //Serial.println(HEG1.read_reg(REG_FIFO_DATA_COUNT));
       HEG1.device_data_read();
       int led1A = HEG1.led1A[0];
       int led2A = HEG1.led2A[0];

@@ -325,12 +325,20 @@ void commandESP32(char received)
     }
   }
   if (received == 'o'){
-    if(MODE == "SPO2"){
+    if(MODE != "FAST"){
       MODE = "FAST";
     }
     else{
+      MODE = "";
+    }
+  }
+  if (received == 'h'){
+    if(MODE != "SPO2"){
       MODE = "SPO2";
-      }
+    }
+    else{
+      MODE = "";
+    }
   }
   if (received == 'W') { //Reset wifi mode.
     saveWiFiLogin(true,false,false,true);
