@@ -2,11 +2,6 @@ const char initWebapp[] PROGMEM = R"=====(
 // Custom Scripts and UI setup, feedback modules must be manually linked to session event data (you can mix and match or write your own easily) 
 // Advanced Client scripts using external packages
 
-
-if(window.innerHeight > 750){
-  [...document.styleSheets[0].cssRules].find(x=> x.selectorText=='.webglcss')
-  .style.height='260px';
-}
  
 // Initialize Session - undefined are default values
 //var s = new HEGwebAPI('',undefined,undefined,undefined,undefined,false); //HEGduino
@@ -665,18 +660,6 @@ if (navigator.userAgent.toLowerCase().indexOf("android") >= 0) {
 
 }
 
-function updateCSS(selector="",props=[],newvalues=[],sheet=0) {
-  if (style.length !== undefined) { //takes an array or single value
-    props.forEach((prop,i) => {
-      [...document.styleSheets[sheet].cssRules].find(x=> x.selectorText==selector)
-        .style[prop]=newvalues[i];
-    });
-  }
-  else { //Else assumed single a style and value set was entered
-    [...document.styleSheets[sheet].cssRules].find(x=> x.selectorText==selector)
-        .style[props]=newvalues;
-  }
-}
 
 */
 )=====";
