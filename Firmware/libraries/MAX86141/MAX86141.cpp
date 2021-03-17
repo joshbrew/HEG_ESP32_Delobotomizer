@@ -122,7 +122,7 @@ void MAX86141::init(int newSpiClk=1000000)
 	write_reg(REG_LED_RANGE_1, 0b00111111); // xx,LED3,LED2,LED1. 00,01,10,11 low to high
 	write_reg(REG_LED1_PA, 255); // 0 = 0mA, 255 = Max mA
 	write_reg(REG_LED2_PA, 255);
-    write_reg(REG_LED3_PA, 128);
+    write_reg(REG_LED3_PA, 255);
     //write_reg(REG_LED3_PA, 255);
 
 	//
