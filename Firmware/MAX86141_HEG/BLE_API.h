@@ -117,6 +117,8 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
         if (rxValue.find("c") != -1) {}
         if (rxValue.find("r") != -1) {}
         if (rxValue.find("R") != -1) {
+            HEG1.write_reg(REG_MODE_CONFIG,0b00000011);
+            coreProgramEnabled = false;
             if (USE_USB == true) {
             Serial.println("Restarting ESP32...");
             }
@@ -125,6 +127,8 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
         }
         if (rxValue.find("S") != -1) 
         {
+          HEG1.write_reg(REG_MODE_CONFIG,0b00000011);
+            coreProgramEnabled = false;
             Serial.println("HEG going to sleep now... Reset the power to turn device back on!");
             delay(1000);
             esp_deep_sleep_start(); //Ends the loop() until device is reset.

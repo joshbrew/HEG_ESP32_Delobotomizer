@@ -10,7 +10,7 @@ if(window.innerHeight > 750){
  
 // Initialize Session - undefined are default values
 //var s = new HEGwebAPI('',undefined,undefined,undefined,undefined,false); //HEGduino
-var s = new HEGwebAPI('',["us","Red","IR","Ambient","Ratio","drdt","ddrdt"],undefined,undefined,undefined,false); // Delobotomizer
+var s = new HEGwebAPI('',["us","Red","IR","Ratio","Ambient","drdt","ddrdt"],undefined,undefined,undefined,false); // Delobotomizer
 //var s = new HEGwebAPI('',["us","lRed","lIR","lRatio","cRed","cIR","cRatio","rRed","rIR","rRatio"],undefined,undefined,undefined,false); //Statechanger
 //var s = new HEGwebAPI('',["us","Ratio"],",",0,1,undefined,undefined,false); window.PEANUT = true; //Peanut (USB only)
 

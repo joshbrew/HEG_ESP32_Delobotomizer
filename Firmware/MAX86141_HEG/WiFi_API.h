@@ -344,6 +344,8 @@ void commandESP32(char received)
     saveWiFiLogin(true,false,false,true);
   }
   if (received == 'R') {
+    HEG1.write_reg(REG_MODE_CONFIG,0b00000011);
+    coreProgramEnabled = false;
     if (USE_USB == true) {
       Serial.println("Restarting ESP32...");
     }
@@ -351,9 +353,11 @@ void commandESP32(char received)
     ESP.restart();
   }
   if (received == 'S') {
-      Serial.println("HEG going to sleep now... Reset the power to turn device back on!");
-      delay(1000);
-      esp_deep_sleep_start(); //Ends the loop() until device is reset.
+    HEG1.write_reg(REG_MODE_CONFIG,0b00000011);
+    coreProgramEnabled = false;
+    Serial.println("HEG going to sleep now... Reset the power to turn device back on!");
+    delay(1000);
+    esp_deep_sleep_start(); //Ends the loop() until device is reset.
   }
   if (received == 's'){ //Standard LED mode
     HEG1.write_reg(REG_LED_SEQ_1, 0b00100001); //0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT

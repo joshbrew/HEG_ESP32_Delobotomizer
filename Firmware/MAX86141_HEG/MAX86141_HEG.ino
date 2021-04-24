@@ -1,4 +1,4 @@
- //MAX86141 HEG Biofeedback Firmware. By Joshua Brewster - MIT License
+//MAX86141 HEG Biofeedback Firmware. By Joshua Brewster - MIT License
 //People who contributed: Diego Schmaedech, Michael Lyons, Ben Hale
 
 #include "WiFi_API.h"
