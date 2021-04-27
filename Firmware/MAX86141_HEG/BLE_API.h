@@ -1,6 +1,51 @@
 #ifndef BLE_API_H
 #define BLE_API_H
 
+//https://learn.sparkfun.com/tutorials/esp32-ota-updates-over-ble-from-a-react-web-application/all
+//^^ Implement Bluetooth OTA ^^
+
+/*
+ *  pOtaCharacteristic = pService->createCharacteristic(
+                     CHARACTERISTIC_UUID_FW,
+                     BLECharacteristic::PROPERTY_NOTIFY | BLECharacteristic::PROPERTY_WRITE
+                     );
+    pOtaCharacteristic->addDescriptor(new BLE2902());
+    pOtaCharacteristic->setCallbacks(new otaCallback(this));
+        
+    void otaCallback::onWrite(BLECharacteristic *pCharacteristic)
+    {
+      std::string rxData = pCharacteristic->getValue();
+      if (!updateFlag) { //If it's the first packet of OTA since bootup, begin OTA
+        Serial.println("BeginOTA");
+        esp_ota_begin(esp_ota_get_next_update_partition(NULL), OTA_SIZE_UNKNOWN, &otaHandler);
+        updateFlag = true;
+      }
+      if (_p_ble != NULL)
+      {
+        if (rxData.length() > 0)
+        {
+          esp_ota_write(otaHandler, rxData.c_str(), rxData.length());
+          if (rxData.length() != FULL_PACKET)
+          {
+            esp_ota_end(otaHandler);
+            Serial.println("EndOTA");
+            if (ESP_OK == esp_ota_set_boot_partition(esp_ota_get_next_update_partition(NULL))) {
+              esp_restart();
+            }
+            else {
+              Serial.println("Upload Error");
+            }
+          }
+        }
+      }
+
+  uint8_t txData[5] = {1, 2, 3, 4, 5};
+  //delay(1000);
+  pCharacteristic->setValue((uint8_t*)txData, 5);
+  pCharacteristic->notify();
+} 
+ */
+
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
