@@ -69,6 +69,8 @@ bool IR_ON = false;
 bool AMBIENT = true;
 char * MODE = ""; //SPO2, DEBUG, FAST, EXT_LED (raw ambient mode with GPIO timer based external leds)
 char * LEDPA = "FULL"; //FULL, HALF
+char * EXPMODE = "DEFAULT"; //Exposure modes, DEFAULT, FAST, SLOW
+char * LEDMODE = "DEFAULT"; //DEFAULT, 2IR, 
 
 bool coreProgramEnabled = false;
 

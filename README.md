@@ -59,4 +59,5 @@ Then reset when:
 * 'L' - External LED mode, configured for pins 12 and 14 to run LEDs and be sampled.
 * 'N' - Toggle SPO2 output (experimental, not working properly yet)
 * 'D' - Toggle Debug output (for using Arduino's graphing)
-
+* 'e' - Toggle exposure settings: slow, fast, and default.
+* 'l' - Toggle LED protocols: Ambient = 2 IR (LED1, LED2, LED1+2), Red = IR (LED1, LED2), or Default (LED3,LED2,Ambient)

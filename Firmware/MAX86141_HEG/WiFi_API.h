@@ -304,7 +304,79 @@ void commandESP32(char received)
       HEG1.write_reg(REG_LED3_PA, 255);
       LEDPA = "FULL";
     }
+  }
+  if (received == 'l') {
+    //
+    // Reset part and place into shutdown mode for config.
+    //
+    HEG1.write_reg(REG_MODE_CONFIG, 0x02);
+    HEG1.read_reg(REG_INT_STAT_1);
+    HEG1.read_reg(REG_INT_STAT_2);
+    if(LEDMODE == "DEFAULT") {
+        HEG1.write_reg(REG_LED_SEQ_1, 0b00100011); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+        HEG1.write_reg(REG_LED_SEQ_2, 0b00000100); //DATA BUF 4 | DATA BUF 3  //
+        LEDMODE = "AMB2IR";
     }
+    else if (LEDMODE == "AMB2IR") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100100); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //  
+      LEDMODE = "2IR";
+    } else if (LEDMODE == "2IR") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100011); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //  
+      LEDMODE = "DEFAULT";
+    } 
+    //
+    // exit shutdown mode.
+    //
+    HEG1.write_reg(REG_MODE_CONFIG, 0x00);
+    
+  }
+  if (received == 'e'){
+    //
+    // Reset part and place into shutdown mode for config.
+    //
+    HEG1.write_reg(REG_MODE_CONFIG, 0x02);
+    HEG1.read_reg(REG_INT_STAT_1);
+    HEG1.read_reg(REG_INT_STAT_2);
+  
+    if(EXPMODE == "FAST") {
+      //
+      // PPG1 & 2 & 3
+      //
+      HEG1.write_reg(REG_PPG_SYNC_CTRL, 0b00000000);
+      HEG1.write_reg(REG_PPG_CONFIG_1,  0b00000010); //ALC_DIS,ADD_OFF,PPG2_RGE,PPG1_RGE,PPG_TINT
+      HEG1.write_reg(REG_PPG_CONFIG_2,  0b10011100); //SPS (0-5), SMP_AVE (6-8)
+      HEG1.write_reg(REG_PPG_CONFIG_3,  0b10000110); //LED_SETLNG, DIG_FILT_SEL, BURST_EN
+      HEG1.write_reg(REG_PICKET_FENCE,  0b01000010); //PF_ENABLE, PF_ORDER, IIR_TC, IIR_INIT_VALUE, THRESHOLD_SIGMA_MULT
+      EXPMODE = "DEFAULT";
+    } else if (EXPMODE == "DEFAULT") {
+      //
+      // PPG1 & 2 & 3
+      //
+      HEG1.write_reg(REG_PPG_SYNC_CTRL, 0b00000000);
+      HEG1.write_reg(REG_PPG_CONFIG_1,  0b00000011); //ALC_DIS,ADD_OFF,PPG2_RGE,PPG1_RGE,PPG_TINT
+      HEG1.write_reg(REG_PPG_CONFIG_2,  0b10011011); //SPS (0-5), SMP_AVE (6-8)
+      HEG1.write_reg(REG_PPG_CONFIG_3,  0b11000110); //LED_SETLNG, DIG_FILT_SEL, BURST_EN
+      HEG1.write_reg(REG_PICKET_FENCE,  0b01000010); //PF_ENABLE, PF_ORDER, IIR_TC, IIR_INIT_VALUE, THRESHOLD_SIGMA_MULT
+      EXPMODE = "SLOW";
+    } else if (EXPMODE == "SLOW") {
+    //
+      // PPG1 & 2 & 3
+      //
+      HEG1.write_reg(REG_PPG_SYNC_CTRL, 0b00000000);
+      HEG1.write_reg(REG_PPG_CONFIG_1,  0b00000000); //ALC_DIS,ADD_OFF,PPG2_RGE,PPG1_RGE,PPG_TINT
+      HEG1.write_reg(REG_PPG_CONFIG_2,  0b10011100); //SPS (0-5), SMP_AVE (6-8)
+      HEG1.write_reg(REG_PPG_CONFIG_3,  0b00000110); //LED_SETLNG, DIG_FILT_SEL, BURST_EN
+      HEG1.write_reg(REG_PICKET_FENCE,  0b01000010); //PF_ENABLE, PF_ORDER, IIR_TC, IIR_INIT_VALUE, THRESHOLD_SIGMA_MULT
+      EXPMODE = "FAST";
+    }
+    //
+    // exit shutdown mode.
+    //
+    HEG1.write_reg(REG_MODE_CONFIG, 0x00);
+
+  }
   if (received == 'r'){ //Higher intensity
     }
   if (received == 'c'){}
