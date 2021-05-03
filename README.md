@@ -3,7 +3,8 @@
 Official repository for the HEGduino V2 Delobotomizer firmware, software, and designs.
 
 ### [Installable Web App](https://hegalomania.netlify.app) 
-- Work in Progress, use via Chrome for Serial USB support. Find the install button via the settings button in the top right of the browser.
+- Work in Progress, use via Chrome for Serial USB support. Use BLE mode if the USB device is not recognized in browser, this is a known issue. If that fails use the web server with the device in WiFi mode. 
+- Find the install button via the settings button in the top right of the browser.
 ### [Getting Started (click me)](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/GettingStarted.md)
 ### [Updating Your Device](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Updating.md)
 ### [Whitepaper](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Open%20Source%20HEG_FNIRS%20Whitepaper.pdf)
@@ -33,7 +34,10 @@ You may install it locally on desktop or mobile as well just like any app and cr
 
 ## Boot routine
 
-The new firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
+The newer firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
+
+Since your device is covered in tape this will help you find the reset button if I didn't mark it for you:
+![esp32](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/29a4eabf0b20d9b95add2a5981e5b34cf1502fad/images/esp32.jpg)
 
 On boot:
 * Two fast blinks: BLE mode
@@ -44,6 +48,9 @@ Then reset when:
 * Reset before first slow flash: Put device to sleep
 * Reset before second slow flash, after first: Change wireless mode (see above)
 * Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
+
+Animated Gif for help:
+![resetroutine](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/06a9a04277764d4e90330a655d3c40310edf3f4f/images/resetroutine.gif)
 
 ## Device Commands (accessible via app (Send Command button) or serial monitor)
 
@@ -59,5 +66,7 @@ Then reset when:
 * 'L' - External LED mode, configured for pins 12 and 14 to run LEDs and be sampled.
 * 'N' - Toggle SPO2 output (experimental, not working properly yet)
 * 'D' - Toggle Debug output (for using Arduino's graphing)
-* 'e' - Toggle exposure settings: slow, fast, and default.
-* 'l' - Toggle LED protocols: Ambient = 2 IR (LED1, LED2, LED1+2), Red = IR (LED1, LED2), or Default (LED3,LED2,Ambient)
+* 'e' - Toggle exposure settings: slow, fast, and default. default has the slowest output rate but samples faster than slow mode with more averaging.
+* 'l' - Toggle LED protocols in this order: Ambient,IR,2 IR (AMBIENT, LED2, LED1+2); Red,IR,2 IR (LED3, LED2, LED1+2), Red = IR (LED1, LED2, AMB), or Default (LED3,LED2,AMBIENT)
+
+Note, use the first setting with the command 'l' if your red LED is underperforming. This will make the software compare Ambient and IR, and optional both IR LEDs for extra strength. For some reason the red output is not as consistent for some people.
