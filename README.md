@@ -4,8 +4,9 @@ Official repository for the HEGduino V2 Delobotomizer firmware, software, and de
 
 ### [New Web App (WIP, we still break it often)](https://app.brainsatplay.com)
 - This will replace the original software and is MUCH more robust, we are still doing a lot of legwork to get all of the quality of life features we want into it but welcome to the new multi-bci community framework for the web! 
+- Chrome only for desktop, works on Android and in VR.
 ### [Installable Web App](https://hegalomania.netlify.app) 
-- Work in Progress, use via Chrome for Serial USB support. Use BLE mode if the USB device is not recognized in browser, this is a known issue. If that fails use the web server with the device in WiFi mode. 
+- Original webapp demo, use via Chrome for Serial USB support. Use BLE mode if the USB device is not recognized in browser, this is a known issue. If that fails use the web server with the device in WiFi mode. 
 - Find the install button via the settings button in the top right of the browser.
 ### [Getting Started (click me)](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/GettingStarted.md)
 ### [Updating Your Device](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Updating.md)
