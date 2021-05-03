@@ -25,7 +25,7 @@ In your preferred browser, enter "192.168.4.1" into the address bar. You should 
 
 Now follow the instructions on screen to browse for the .bin folder that you may download from this repo. Wait for it to finish uploading then reconnect to the HEG after that's taken care of if it does not do it automatically. Voila!
 
-###### If your browser won't identify the USB connection, try installing the VCP for Windows (or Mac) drivers here: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+##### If your browser won't identify the USB connection, try installing the VCP for Windows (or Mac) drivers here: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 
 ## Progressive Web App (WIP): https://hegalomania.netlify.app
 
