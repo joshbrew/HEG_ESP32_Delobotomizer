@@ -207,6 +207,14 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
             MODE = "";
           }
         }
+        if (rxValue.find("T") != -1) {
+          if(MODE != "TEMP") {
+            MODE = "TEMP";
+          }
+          else {
+            MODE = "";
+          }
+        }
         if (rxValue.find("F") != -1){
           if(USE_FILTERS == true){
             USE_FILTERS = false;
@@ -232,7 +240,7 @@ class MyCallbacks : public BLECharacteristicCallbacks //We need to set up the BL
     HEG1.read_reg(REG_INT_STAT_1);
     HEG1.read_reg(REG_INT_STAT_2);
     if(LEDMODE == "DEFAULT") {
-        HEG1.write_reg(REG_LED_SEQ_1, 0b00101001); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+        HEG1.write_reg(REG_LED_SEQ_1, 0b00101001); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT, 0100 - LED 1+2
         HEG1.write_reg(REG_LED_SEQ_2, 0b00000100); //DATA BUF 4 | DATA BUF 3  //
         LEDMODE = "REDISAMB";
     } else if (LEDMODE == "REDISAMB") {

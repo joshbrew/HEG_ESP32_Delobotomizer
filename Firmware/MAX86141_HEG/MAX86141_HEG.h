@@ -67,7 +67,7 @@ bool newEvent = false; //WiFi event task
 bool RED_ON = false;
 bool IR_ON = false;
 bool AMBIENT = true;
-char * MODE = ""; //SPO2, DEBUG, FAST, EXT_LED (raw ambient mode with GPIO timer based external leds)
+char * MODE = "TEMP"; //SPO2, DEBUG, FAST, TEMP, EXT_LED (raw ambient mode with GPIO timer based external leds)
 char * LEDPA = "FULL"; //FULL, HALF
 char * EXPMODE = "DEFAULT"; //Exposure modes, DEFAULT, FAST, SLOW
 char * LEDMODE = "DEFAULT"; //DEFAULT, 2IR, 
@@ -350,6 +350,16 @@ void sampleHEG(){
         }
           sprintf(outputarr, "%lu|%0.0f|%0.0f|%0.4f|%0.0f|%d|%d\r\n",
             currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, lastValidHeartRate, lastValidSPO2);
+      }
+      else if (MODE == "TEMP") {
+        uint8_t t = HEG1.read_reg(REG_TEMP_CONFIG);
+        if(t != 1) { 
+            HEG1.write_reg(REG_TEMP_CONFIG,0b00000001);
+        }
+        float tcomp = float(HEG1.twoCompDeco(HEG1.read_reg(REG_TEMP_INTR)));
+        float tfrac = float(HEG1.read_reg(REG_TEMP_FRAC))*0.0625;
+        sprintf(outputarr, "%lu|%0.0f|%0.0f|%0.4f|%0.0f|%0.4f\r\n",
+            currentMicros, RED_AVG, IR_AVG, RATIO_AVG, AMBIENT_AVG, tcomp+tfrac);
       }
       else if (MODE == "DEBUG"){
           sprintf(outputarr, "RED: %0.0f \t IR: %0.0f \t RATIO: %0.4f \t AMBIENT: %0.0f\r\n",

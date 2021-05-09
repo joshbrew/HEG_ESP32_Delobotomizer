@@ -252,6 +252,14 @@ void commandESP32(char received)
       MODE = "SPO2";
     }
   }
+  if (received == 'T'){
+    if(MODE == "TEMP"){
+      MODE = "";
+    }
+    else {
+      MODE = "TEMP";
+    }
+  }
   if (received == 'D'){ // Debug mode (for Arduino plotter)
     if(MODE == "DEBUG"){
       MODE = "";

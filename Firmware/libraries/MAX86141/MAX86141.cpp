@@ -106,7 +106,7 @@ void MAX86141::init(int newSpiClk=1000000)
 	//
 	// PPG1 & 2 & 3
 	//
-	write_reg(REG_PPG_SYNC_CTRL, 0b000000000);
+	write_reg(REG_PPG_SYNC_CTRL,0b00000000);
 	write_reg(REG_PPG_CONFIG_1, 0b00000010); //ALC_DIS,ADD_OFF,PPG2_RGE,PPG1_RGE,PPG_TINT
 	write_reg(REG_PPG_CONFIG_2, 0b10011100); //SPS (0-5), SMP_AVE (6-8)
 	write_reg(REG_PPG_CONFIG_3, 0b10000110); //LED_SETLNG, DIG_FILT_SEL, BURST_EN
@@ -140,6 +140,7 @@ void MAX86141::init(int newSpiClk=1000000)
 	write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //
     write_reg(REG_LED_SEQ_3, 0x00); // 5 | 6
 
+    //write_reg(REG_TEMP_CONFIG,0b00000001); //enable die temperature sensor check read 0x41 and 0x42 together for result (29ms sample rate) Re-enable this for every reading.
 
 	//
 	// Configure interrupt.
@@ -173,6 +174,19 @@ void MAX86141::begin() {
 
 void MAX86141::stop() {
     write_reg(REG_MODE_CONFIG,0b00000010);
+}
+
+//8bit two's complement
+int8_t MAX86141::twoCompDeco(uint8_t data) {
+    // Take the two's complement of the data
+    int8_t dataInt;
+    if(data > 127) {
+        dataInt = ((~(int)data+0b01) & 0xff) -1;
+    } else {
+        dataInt = (int)data;
+    }
+
+    return dataInt;
 }
 
 /* inspired by pseudo-code available on MAX86141 datasheet */

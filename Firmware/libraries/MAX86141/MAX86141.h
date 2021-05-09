@@ -288,6 +288,7 @@ class MAX86141 {
     void stop();
     void write_reg(uint8_t address, uint8_t data_in);
     uint8_t read_reg(uint8_t address);
+    int8_t twoCompDeco(uint8_t deco);
     void fifo_intr();
     void read_fifo(uint8_t data_buffer[], uint8_t count);
     void device_data_read(void);
