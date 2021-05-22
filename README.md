@@ -15,6 +15,8 @@ Official repository for the HEGduino V2 Delobotomizer firmware, software, and de
 
 For now, you can follow along from the [original repo](https://github.com/moothyknight/HEG_ESP32) on how to install the chrome extension. This is being phased out due to the superior PWA format.
 
+### If your browser won't identify the USB connection, try installing the VCP for Windows (or Mac) drivers here: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+
 ## Firmware
 
 The Firmware folder contains a .bin file that you can use via the on-board web interface to update the device. There are Arduino libraries and firmware code files for custom code, you will need the ESP32 module additionally for Arduino.
@@ -24,8 +26,6 @@ Simply connect to the wifi network named "My_HEG" when the device is powered up 
 In your preferred browser, enter "192.168.4.1" into the address bar. You should see an interface show up. Click on the Update button to go to the update page.
 
 Now follow the instructions on screen to browse for the .bin folder that you may download from this repo. Wait for it to finish uploading then reconnect to the HEG after that's taken care of if it does not do it automatically. Voila!
-
-##### If your browser won't identify the USB connection, try installing the VCP for Windows (or Mac) drivers here: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 
 ## Progressive Web App (WIP): https://hegalomania.netlify.app
 
