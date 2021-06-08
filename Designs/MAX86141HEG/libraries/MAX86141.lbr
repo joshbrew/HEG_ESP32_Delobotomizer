@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.6.2">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
+<layer number="3" name="Route3" color="17" fill="1" visible="no" active="yes"/>
+<layer number="4" name="Route4" color="18" fill="1" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="19" fill="1" visible="no" active="yes"/>
+<layer number="6" name="Route6" color="25" fill="1" visible="no" active="yes"/>
+<layer number="7" name="Route7" color="26" fill="1" visible="no" active="yes"/>
+<layer number="8" name="Route8" color="27" fill="1" visible="no" active="yes"/>
+<layer number="9" name="Route9" color="28" fill="1" visible="no" active="yes"/>
+<layer number="10" name="Route10" color="29" fill="1" visible="no" active="yes"/>
+<layer number="11" name="Route11" color="30" fill="1" visible="no" active="yes"/>
+<layer number="12" name="Route12" color="20" fill="1" visible="no" active="yes"/>
+<layer number="13" name="Route13" color="21" fill="1" visible="no" active="yes"/>
+<layer number="14" name="Route14" color="22" fill="1" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="21-100134_N201A2-1_MXM">
+<smd name="A1" x="-0.8" y="0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="A2" x="-0.4" y="0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="A3" x="0" y="0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="A4" x="0.4" y="0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="A5" x="0.8" y="0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="B1" x="-0.8" y="0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="B2" x="-0.4" y="0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="B3" x="0" y="0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="B4" x="0.4" y="0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="B5" x="0.8" y="0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="C1" x="-0.8" y="-0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="C2" x="-0.4" y="-0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="C3" x="0" y="-0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="C4" x="0.4" y="-0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="C5" x="0.8" y="-0.2" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="D1" x="-0.8" y="-0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="D2" x="-0.4" y="-0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="D3" x="0" y="-0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="D4" x="0.4" y="-0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<smd name="D5" x="0.8" y="-0.6" dx="0.2032" dy="0.2032" layer="1" roundness="100"/>
+<wire x1="-1.1684" y1="-1.0668" x2="1.1684" y2="-1.0668" width="0.1524" layer="21"/>
+<wire x1="1.1684" y1="1.0668" x2="-1.1684" y2="1.0668" width="0.1524" layer="21"/>
+<text x="-2.8194" y="-0.0254" size="1.27" layer="21" ratio="6" rot="SR0">A</text>
+<text x="-2.8194" y="-1.2446" size="1.27" layer="21" ratio="6" rot="SR0">D</text>
+<text x="-0.1524" y="1.5494" size="1.27" layer="21" ratio="6" rot="SR90">1</text>
+<text x="1.4224" y="1.5494" size="1.27" layer="21" ratio="6" rot="SR90">5</text>
+<wire x1="-0.8382" y1="0.9144" x2="-1.016" y2="0.7366" width="0.1524" layer="51"/>
+<wire x1="-1.016" y1="-0.9144" x2="1.016" y2="-0.9144" width="0.1524" layer="51"/>
+<wire x1="1.016" y1="-0.9144" x2="1.016" y2="0.9144" width="0.1524" layer="51"/>
+<wire x1="1.016" y1="0.9144" x2="-1.016" y2="0.9144" width="0.1524" layer="51"/>
+<wire x1="-1.016" y1="0.9144" x2="-1.016" y2="-0.9144" width="0.1524" layer="51"/>
+<text x="-2.8194" y="-0.0254" size="1.27" layer="51" ratio="6" rot="SR0">A</text>
+<text x="-2.8194" y="-1.2446" size="1.27" layer="51" ratio="6" rot="SR0">D</text>
+<text x="-0.1524" y="1.5494" size="1.27" layer="51" ratio="6" rot="SR90">1</text>
+<text x="1.4224" y="1.5494" size="1.27" layer="51" ratio="6" rot="SR90">5</text>
+<text x="-1.6764" y="-0.0254" size="1.27" layer="22" ratio="6" rot="SMR0">A</text>
+<text x="-1.6764" y="-1.2446" size="1.27" layer="22" ratio="6" rot="SMR0">D</text>
+<text x="-1.4224" y="1.5494" size="1.27" layer="22" ratio="6" rot="SMR90">1</text>
+<text x="0.1524" y="1.5494" size="1.27" layer="22" ratio="6" rot="SMR90">5</text>
+<text x="-3.2766" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;Name</text>
+<text x="-1.7272" y="-0.635" size="1.27" layer="27" ratio="6" rot="SR0">&gt;Value</text>
+</package>
+</packages>
+<symbols>
+<symbol name="MAX86141ENP+T">
+<pin name="VLED" x="2.54" y="0" length="middle" direction="pas"/>
+<pin name="SCLK" x="2.54" y="-2.54" length="middle" direction="pas"/>
+<pin name="SDO" x="2.54" y="-5.08" length="middle" direction="pas"/>
+<pin name="SDI" x="2.54" y="-7.62" length="middle" direction="pas"/>
+<pin name="CSB" x="2.54" y="-10.16" length="middle" direction="pas"/>
+<pin name="LED3_DRV" x="2.54" y="-12.7" length="middle"/>
+<pin name="!INT" x="2.54" y="-15.24" length="middle" direction="pas"/>
+<pin name="GPIO1" x="2.54" y="-17.78" length="middle"/>
+<pin name="GPIO2" x="2.54" y="-20.32" length="middle"/>
+<pin name="VREF" x="2.54" y="-22.86" length="middle" direction="pwr"/>
+<pin name="LED2_DRV" x="53.34" y="-22.86" length="middle" rot="R180"/>
+<pin name="VDD_DIG" x="53.34" y="-20.32" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND_DIG" x="53.34" y="-17.78" length="middle" direction="pas" rot="R180"/>
+<pin name="GND_ANA" x="53.34" y="-15.24" length="middle" direction="pas" rot="R180"/>
+<pin name="PD_GND" x="53.34" y="-12.7" length="middle" direction="pas" rot="R180"/>
+<pin name="LED1_DRV" x="53.34" y="-10.16" length="middle" rot="R180"/>
+<pin name="VDD_ANA" x="53.34" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="PGND" x="53.34" y="-5.08" length="middle" direction="pas" rot="R180"/>
+<pin name="PD2_IN" x="53.34" y="-2.54" length="middle" rot="R180"/>
+<pin name="PD1_IN" x="53.34" y="0" length="middle" rot="R180"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-27.94" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="-27.94" x2="48.26" y2="-27.94" width="0.1524" layer="94"/>
+<wire x1="48.26" y1="-27.94" x2="48.26" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="48.26" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
+<text x="23.2156" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;Name</text>
+<text x="22.5806" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MAX86141ENP+T" prefix="U">
+<gates>
+<gate name="A" symbol="MAX86141ENP+T" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="21-100134_N201A2-1_MXM">
+<connects>
+<connect gate="A" pin="!INT" pad="B2"/>
+<connect gate="A" pin="CSB" pad="A5"/>
+<connect gate="A" pin="GND_ANA" pad="C4"/>
+<connect gate="A" pin="GND_DIG" pad="C3"/>
+<connect gate="A" pin="GPIO1" pad="B3"/>
+<connect gate="A" pin="GPIO2" pad="B4"/>
+<connect gate="A" pin="LED1_DRV" pad="D1"/>
+<connect gate="A" pin="LED2_DRV" pad="C1"/>
+<connect gate="A" pin="LED3_DRV" pad="B1"/>
+<connect gate="A" pin="PD1_IN" pad="D5"/>
+<connect gate="A" pin="PD2_IN" pad="D4"/>
+<connect gate="A" pin="PD_GND" pad="C5"/>
+<connect gate="A" pin="PGND" pad="D3"/>
+<connect gate="A" pin="SCLK" pad="A2"/>
+<connect gate="A" pin="SDI" pad="A4"/>
+<connect gate="A" pin="SDO" pad="A3"/>
+<connect gate="A" pin="VDD_ANA" pad="D2"/>
+<connect gate="A" pin="VDD_DIG" pad="C2"/>
+<connect gate="A" pin="VLED" pad="A1"/>
+<connect gate="A" pin="VREF" pad="B5"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="BUILT_BY" value="EMA_UL_Team" constant="no"/>
+<attribute name="COPYRIGHT" value="Copyright (C) 2018 Accelerated Designs. All rights reserved" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="MAX86141ENP+T" constant="no"/>
+<attribute name="REVISION" value="1" constant="no"/>
+<attribute name="SOURCELIBRARY" value="Maxim_2018-11-30" constant="no"/>
+<attribute name="VENDOR" value="Maxim Integrated Products" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
