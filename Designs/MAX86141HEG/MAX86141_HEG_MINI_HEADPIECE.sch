@@ -66,6 +66,7 @@
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
 <layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="61" name="stand" color="7" fill="1" visible="no" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -92,8 +93,13 @@
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="yes"/>
 <layer number="112" name="tSilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="113" name="ReferenceLS" color="7" fill="1" visible="no" active="no"/>
+<layer number="114" name="tValuesAlt" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="115" name="ReferenceISLANDS" color="7" fill="1" visible="no" active="no"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="117" name="BACKMAAT1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="no"/>
+<layer number="119" name="KAP_TEKEN" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="120" name="KAP_MAAT1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
@@ -103,15 +109,25 @@
 <layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="bLogo" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
+<layer number="145" name="DrillLegend_01-16" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="146" name="DrillLegend_01-20" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="153" name="FabDoc1" color="6" fill="1" visible="no" active="no"/>
 <layer number="154" name="FabDoc2" color="2" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="15" visible="no" active="no"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="1" visible="no" active="no"/>
@@ -4154,6 +4170,178 @@ type 0309, grid 2.5 mm</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="OS103012MU2QP1">
+<packages>
+<package name="SW_OS103012MU2QP1">
+<wire x1="-8.75" y1="3" x2="6.75" y2="3" width="0.127" layer="51"/>
+<wire x1="6.75" y1="3" x2="6.75" y2="-3" width="0.127" layer="51"/>
+<wire x1="6.75" y1="-3" x2="-8.75" y2="-3" width="0.127" layer="51"/>
+<wire x1="-8.75" y1="-3" x2="-8.75" y2="3" width="0.127" layer="51"/>
+<circle x="-9.5" y="0" radius="0.1" width="0.2" layer="51"/>
+<circle x="-9.5" y="0" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-9" y1="3.25" x2="7" y2="3.25" width="0.05" layer="39"/>
+<wire x1="7" y1="3.25" x2="7" y2="-3.25" width="0.05" layer="39"/>
+<wire x1="7" y1="-3.25" x2="-9" y2="-3.25" width="0.05" layer="39"/>
+<wire x1="-9" y1="-3.25" x2="-9" y2="3.25" width="0.05" layer="39"/>
+<text x="-8.7" y="3.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="-8.7" y="-4.65" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-8.75" y1="3" x2="6.75" y2="3" width="0.127" layer="21"/>
+<wire x1="6.75" y1="3" x2="6.75" y2="-3" width="0.127" layer="21"/>
+<wire x1="6.75" y1="-3" x2="-8.75" y2="-3" width="0.127" layer="21"/>
+<wire x1="-8.75" y1="-3" x2="-8.75" y2="3" width="0.127" layer="21"/>
+<pad name="1" x="-5" y="0" drill="1" shape="square"/>
+<pad name="2" x="0" y="0" drill="1"/>
+<pad name="3" x="2.5" y="0" drill="1"/>
+<pad name="4" x="5" y="0" drill="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="OS103012MU2QP1">
+<text x="-2.54" y="8.128" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-2.54" y1="5.08" x2="0" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="0" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="0" y2="-7.62" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="6.096" x2="1.27" y2="4.064" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="4.064" x2="2.54" y2="4.064" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="4.064" x2="2.54" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-1.524" x2="1.27" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="-1.524" x2="1.27" y2="-3.556" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="-3.556" x2="3.81" y2="-3.556" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-3.556" x2="3.81" y2="6.096" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="6.096" x2="1.27" y2="6.096" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.62" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="-2.54" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-10.16" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="5.715"/>
+<vertex x="0" y="4.445"/>
+<vertex x="1.27" y="5.08"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="1.905"/>
+<vertex x="0" y="0.635"/>
+<vertex x="1.27" y="1.27"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="-1.905"/>
+<vertex x="0" y="-3.175"/>
+<vertex x="1.27" y="-2.54"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="-4.445"/>
+<vertex x="0" y="-5.715"/>
+<vertex x="1.27" y="-5.08"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="-6.985"/>
+<vertex x="0" y="-8.255"/>
+<vertex x="1.27" y="-7.62"/>
+</polygon>
+<pin name="2" x="-7.62" y="-2.54" visible="pad" length="middle" direction="pas"/>
+<pin name="4" x="-7.62" y="-7.62" visible="pad" length="middle" direction="pas"/>
+<pin name="3" x="-7.62" y="-5.08" visible="pad" length="middle" direction="pas"/>
+<pin name="1" x="-7.62" y="5.08" visible="pad" length="middle" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="OS103012MU2QP1" prefix="U">
+<description>Slide Switch SP3T Through Hole  &lt;a href="https://pricing.snapeda.com/parts/OS103012MU2QP1/C%26K/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="OS103012MU2QP1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SW_OS103012MU2QP1">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" Slide Switch SP3T Through Hole "/>
+<attribute name="MF" value="C&amp;K"/>
+<attribute name="MP" value="OS103012MU2QP1"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="BUTT-2">
+<packages>
+<package name="SW_BUTT-2">
+<wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
+<wire x1="-3" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
+<wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
+<wire x1="3" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
+<wire x1="-3" y1="3" x2="3" y2="3" width="0.127" layer="21"/>
+<wire x1="3" y1="3" x2="3" y2="1.075" width="0.127" layer="21"/>
+<wire x1="3" y1="-1.075" x2="3" y2="-3" width="0.127" layer="21"/>
+<wire x1="3" y1="-3" x2="-3" y2="-3" width="0.127" layer="21"/>
+<wire x1="-3" y1="-3" x2="-3" y2="-1.075" width="0.127" layer="21"/>
+<wire x1="-3" y1="1.075" x2="-3" y2="3" width="0.127" layer="21"/>
+<wire x1="-3.504" y1="3.25" x2="3.504" y2="3.25" width="0.05" layer="39"/>
+<wire x1="3.504" y1="3.25" x2="3.504" y2="-3.25" width="0.05" layer="39"/>
+<wire x1="3.504" y1="-3.25" x2="-3.504" y2="-3.25" width="0.05" layer="39"/>
+<wire x1="-3.504" y1="-3.25" x2="-3.504" y2="3.25" width="0.05" layer="39"/>
+<text x="-3" y="3.5" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3" y="-3.5" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<circle x="-3.8" y="0" radius="0.1" width="0.2" layer="21"/>
+<circle x="-3.8" y="0" radius="0.1" width="0.2" layer="51"/>
+<pad name="1" x="-2.5" y="0" drill="1"/>
+<pad name="2" x="2.5" y="0" drill="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="BUTT-2">
+<text x="-5.08" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
+<circle x="2.06375" y="0" radius="0.508" width="0.1524" layer="94"/>
+<circle x="-2.06375" y="0" radius="0.508" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="1.5875" x2="0" y2="1.5875" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.5875" x2="2.54" y2="1.5875" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.5875" x2="0" y2="3.4925" width="0.1524" layer="94"/>
+<pin name="1" x="-7.62" y="0" visible="pad" length="middle" direction="pas"/>
+<pin name="2" x="7.62" y="0" visible="pad" length="middle" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="BUTT-2" prefix="S">
+<description>Tactile Switches MINI PUSH BUTTON SWITCH 2-PIN QTY. 4  &lt;a href="https://pricing.snapeda.com/parts/BUTT-2/Gravitech/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="BUTT-2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SW_BUTT-2">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" Tactile Switches MINI PUSH BUTTON SWITCH 2-PIN QTY. 4 "/>
+<attribute name="MF" value="Gravitech"/>
+<attribute name="MP" value="BUTT-2"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4172,6 +4360,8 @@ type 0309, grid 2.5 mm</description>
 <part name="JP4" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X20" device="" package3d_urn="urn:adsk.eagle:package:22441/2"/>
 <part name="R1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="0204/5" package3d_urn="urn:adsk.eagle:package:6240595/1"/>
 <part name="R2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="0204/5" package3d_urn="urn:adsk.eagle:package:6240595/1"/>
+<part name="U1" library="OS103012MU2QP1" deviceset="OS103012MU2QP1" device=""/>
+<part name="S1" library="BUTT-2" deviceset="BUTT-2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4209,6 +4399,14 @@ type 0309, grid 2.5 mm</description>
 <instance part="R2" gate="G$1" x="-61.214" y="81.28" smashed="yes" rot="R90">
 <attribute name="NAME" x="-62.7126" y="77.47" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-57.912" y="77.47" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="U1" gate="G$1" x="-80.01" y="49.784" smashed="yes" rot="MR270">
+<attribute name="NAME" x="-88.138" y="52.324" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="-89.154" y="43.688" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="S1" gate="G$1" x="-59.436" y="51.054" smashed="yes" rot="R180">
+<attribute name="NAME" x="-54.356" y="47.244" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-54.356" y="54.864" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -4397,6 +4595,59 @@ type 0309, grid 2.5 mm</description>
 <wire x1="-63.754" y1="93.472" x2="-63.754" y2="86.36" width="0.1524" layer="91"/>
 <label x="-63.246" y="97.79" size="1.778" layer="95" rot="R90"/>
 <pinref part="R1" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="3"/>
+<pinref part="U1" gate="G$1" pin="1"/>
+<wire x1="-84.328" y1="65.786" x2="-84.328" y2="57.404" width="0.1524" layer="91"/>
+<wire x1="-84.328" y1="57.404" x2="-85.09" y2="57.404" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="4"/>
+<pinref part="U1" gate="G$1" pin="2"/>
+<wire x1="-81.788" y1="65.786" x2="-81.788" y2="57.404" width="0.1524" layer="91"/>
+<wire x1="-81.788" y1="57.404" x2="-77.47" y2="57.404" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="5"/>
+<wire x1="-79.248" y1="65.786" x2="-79.248" y2="58.674" width="0.1524" layer="91"/>
+<wire x1="-79.248" y1="58.674" x2="-74.93" y2="58.674" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="3"/>
+<wire x1="-74.93" y1="58.674" x2="-74.93" y2="57.404" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="6"/>
+<wire x1="-76.708" y1="65.786" x2="-76.708" y2="59.69" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="4"/>
+<wire x1="-76.708" y1="59.69" x2="-72.39" y2="59.69" width="0.1524" layer="91"/>
+<wire x1="-72.39" y1="59.69" x2="-72.39" y2="57.404" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="7"/>
+<wire x1="-74.168" y1="65.786" x2="-74.168" y2="60.706" width="0.1524" layer="91"/>
+<wire x1="-74.168" y1="60.706" x2="-68.834" y2="60.706" width="0.1524" layer="91"/>
+<wire x1="-68.834" y1="60.706" x2="-68.834" y2="51.054" width="0.1524" layer="91"/>
+<pinref part="S1" gate="G$1" pin="2"/>
+<wire x1="-68.834" y1="51.054" x2="-67.056" y2="51.054" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="8"/>
+<wire x1="-71.628" y1="65.786" x2="-71.628" y2="61.468" width="0.1524" layer="91"/>
+<pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="-71.628" y1="61.468" x2="-51.816" y2="61.468" width="0.1524" layer="91"/>
+<wire x1="-51.816" y1="61.468" x2="-51.816" y2="51.054" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
