@@ -1,4 +1,4 @@
-Partlist exported from C:/Users/brews/Documents/GitHub/HEG_ESP32_Delobotomizer/Designs/MAX86141HEG/MAX86141_HEG_MINI_HEADPIECE.sch at 6/17/2021 4:02 PM
+Partlist exported from C:/Users/brews/Documents/GitHub/HEG_ESP32_Delobotomizer/Designs/MAX86141HEG/MAX86141_HEG_MINI_HEADPIECE.sch at 6/17/2021 7:48 PM
 
 Qty Value          Device         Package           Parts    Description                                                         AVAILABILITY DESCRIPTION                                             MF        MP             PACKAGE POPULARITY PRICE
 2                  LED1206        LED-1206          D1, D2   LEDs                                                                                                                                                                                      

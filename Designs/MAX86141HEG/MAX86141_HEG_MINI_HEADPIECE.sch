@@ -4404,9 +4404,9 @@ type 0309, grid 2.5 mm</description>
 <attribute name="NAME" x="-88.138" y="52.324" size="1.778" layer="95" rot="MR270"/>
 <attribute name="VALUE" x="-89.154" y="43.688" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="S1" gate="G$1" x="-59.436" y="51.054" smashed="yes" rot="R180">
-<attribute name="NAME" x="-54.356" y="47.244" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-54.356" y="54.864" size="1.778" layer="96" rot="R180"/>
+<instance part="S1" gate="G$1" x="-58.928" y="51.054" smashed="yes" rot="R180">
+<attribute name="NAME" x="-53.848" y="47.244" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-53.848" y="54.864" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -4422,6 +4422,9 @@ type 0309, grid 2.5 mm</description>
 <pinref part="JP1" gate="A" pin="16"/>
 <wire x1="-51.308" y1="65.786" x2="-51.308" y2="72.898" width="0.1524" layer="91"/>
 <label x="-53.34" y="73.406" size="1.778" layer="95"/>
+<pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="-51.308" y1="65.786" x2="-51.308" y2="51.054" width="0.1524" layer="91"/>
+<junction x="-51.308" y="65.786"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="A" pin="17"/>
@@ -4638,16 +4641,7 @@ type 0309, grid 2.5 mm</description>
 <wire x1="-74.168" y1="60.706" x2="-68.834" y2="60.706" width="0.1524" layer="91"/>
 <wire x1="-68.834" y1="60.706" x2="-68.834" y2="51.054" width="0.1524" layer="91"/>
 <pinref part="S1" gate="G$1" pin="2"/>
-<wire x1="-68.834" y1="51.054" x2="-67.056" y2="51.054" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="JP1" gate="A" pin="8"/>
-<wire x1="-71.628" y1="65.786" x2="-71.628" y2="61.468" width="0.1524" layer="91"/>
-<pinref part="S1" gate="G$1" pin="1"/>
-<wire x1="-71.628" y1="61.468" x2="-51.816" y2="61.468" width="0.1524" layer="91"/>
-<wire x1="-51.816" y1="61.468" x2="-51.816" y2="51.054" width="0.1524" layer="91"/>
+<wire x1="-68.834" y1="51.054" x2="-66.548" y2="51.054" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
