@@ -158,7 +158,6 @@
 <board>
 <plain>
 <dimension x1="158.5264" y1="18.3896" x2="188.5264" y2="30.5966" x3="173.5264" y3="29.6166" textsize="1.778" layer="47" dtype="horizontal" extlength="2.54"/>
-<wire x1="188.1378" y1="15.9766" x2="158.369" y2="17.272" width="0.1524" layer="47"/>
 <text x="164.4904" y="18.1864" size="0.762" layer="114">MAX86141 HEG MINI Prototype (MIT License)
 Designed By: Joshua Brewster 
 </text>
