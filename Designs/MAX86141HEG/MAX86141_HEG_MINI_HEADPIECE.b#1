@@ -626,7 +626,6 @@ Inspired by all of you.</text>
 <wire x1="40.005" y1="31.877" x2="39.497" y2="31.877" width="0.1524" layer="101"/>
 <wire x1="39.497" y1="31.877" x2="39.37" y2="32.004" width="0.1524" layer="101" curve="-90"/>
 <wire x1="39.37" y1="32.004" x2="39.37" y2="34.417" width="0.1524" layer="101"/>
-<dimension x1="13.4366" y1="65.405" x2="25.781" y2="27.559" x3="5.08" y3="46.482" textsize="1.778" layer="47" dtype="vertical"/>
 </plain>
 <libraries>
 <library name="pinhead" urn="urn:adsk.eagle:library:325">
