@@ -463,9 +463,9 @@ void commandESP32(char received)
       delay(100);
       ESP.restart();
     }
-    else //Default back to WiFi mode
+    else //Default back to WIFI mode
     {
-      EEPROM.write(0,0);
+      EEPROM.write(0,1);
       EEPROM.commit();
       EEPROM.end();
       delay(100);
@@ -484,9 +484,9 @@ void commandESP32(char received)
       delay(100);
       ESP.restart();
     }
-    else //Default back to WiFi mode
+    else //Default back to WIFI mode
     {
-      EEPROM.write(0,0);
+      EEPROM.write(0,1);
       EEPROM.commit();
       EEPROM.end();
       delay(100);
@@ -496,17 +496,17 @@ void commandESP32(char received)
   if (received == 'b')
   { //Bluetooth LE Toggle
     EEPROM.begin(512);
-    if (EEPROM.read(0) != 1)
+    if (EEPROM.read(0) != 0)
     {
-      EEPROM.write(0,1);
+      EEPROM.write(0,0);
       EEPROM.commit();
       EEPROM.end();
       delay(100);
       ESP.restart();
     }
-    else //Default back to WiFi mode
+    else //Default back to WIFI mode
     {
-      EEPROM.write(0,0);
+      EEPROM.write(0,1);
       EEPROM.commit();
       EEPROM.end();
       delay(100);
