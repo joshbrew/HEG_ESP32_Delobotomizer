@@ -2,18 +2,16 @@
 
 Official repository for the HEGduino V2 Delobotomizer firmware, software, and designs.
 
-### [New Web App (WIP, we still break it often)](https://app.brainsatplay.com)
+### [WebApp: Brains@Play](https://app.brainsatplay.com)
 - This will replace the original software and is MUCH more robust, we are still doing a lot of legwork to get all of the quality of life features we want into it but welcome to the new multi-bci community framework for the web! 
-- Chrome only for desktop, works on Android and in VR.
-### [Installable Web App](https://hegalomania.netlify.app) 
-- Original webapp demo, use via Chrome for Serial USB support. Use BLE mode if the USB device is not recognized in browser, this is a known issue. If that fails use the web server with the device in WiFi mode. 
+- Chrome only for desktop, works on Android and in VR. 
 - Find the install button via the settings button in the top right of the browser.
 ### [Getting Started (click me)](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/GettingStarted.md)
 ### [Updating Your Device](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Updating.md)
 ### [Whitepaper](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/main/Guides/Open%20Source%20HEG_FNIRS%20Whitepaper.pdf)
+### [Old Progressive Web App (no longer updated)](https://hegalomania.netlify.app) 
+- Original webapp demo, use via Chrome for Serial USB support. Use BLE mode if the USB device is not recognized in browser, this is a known issue. If that fails use the web server with the device in WiFi mode.
 
-
-For now, you can follow along from the [original repo](https://github.com/moothyknight/HEG_ESP32) on how to install the chrome extension. This is being phased out due to the superior PWA format.
 
 ### If your browser won't identify the USB connection, try installing the VCP for Windows (or Mac) drivers here: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 
@@ -39,7 +37,7 @@ You may install it locally on desktop or mobile as well just like any app and cr
 
 ## Boot routine
 
-The newer firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in then has a period to let you reset the device into a different mode. You will see a series of rapid flashes then several slow flashes, then you should see the red LED come on finally after 3 seconds from powering up. If you don't see the light come on after it is done booting try rebooting the device via the reset button as there is a known bug when freshly powering the device that the SPI mode won't start.
+The newer firmware contains a new boot-up routine for making it easier to switch modes on the device. It will flash when powered up to indicate which mode it's in.
 
 Since your device is covered in tape this will help you find the reset button if I didn't mark it for you:
 ![esp32](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/29a4eabf0b20d9b95add2a5981e5b34cf1502fad/images/esp32.jpg)
@@ -49,10 +47,7 @@ On boot:
 * Three fast blinks: WIFI mode
 * Four fast blinks: Bluetooth Classic (Serial) mode
 
-Then reset when:
-* Reset before first slow flash: Put device to sleep
-* Reset before second slow flash, after first: Change wireless mode (see above)
-* Reset before third blink, after second: Reset WiFi credentials (they can get stuck if you enter them incorrectly or if a router won't connect to the device properly)
+The button on the newer devices puts your device to sleep. There will be a switch added next to control device settings.
 
 Animated Gif for help:
 ![resetroutine](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/06a9a04277764d4e90330a655d3c40310edf3f4f/images/resetroutine.gif)
