@@ -4170,113 +4170,6 @@ type 0309, grid 2.5 mm</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="OS103012MU2QP1">
-<packages>
-<package name="SW_OS103012MU2QP1">
-<wire x1="-8.75" y1="3" x2="6.75" y2="3" width="0.127" layer="51"/>
-<wire x1="6.75" y1="3" x2="6.75" y2="-3" width="0.127" layer="51"/>
-<wire x1="6.75" y1="-3" x2="-8.75" y2="-3" width="0.127" layer="51"/>
-<wire x1="-8.75" y1="-3" x2="-8.75" y2="3" width="0.127" layer="51"/>
-<circle x="-9.5" y="0" radius="0.1" width="0.2" layer="51"/>
-<circle x="-9.5" y="0" radius="0.1" width="0.2" layer="21"/>
-<wire x1="-9" y1="3.25" x2="7" y2="3.25" width="0.05" layer="39"/>
-<wire x1="7" y1="3.25" x2="7" y2="-3.25" width="0.05" layer="39"/>
-<wire x1="7" y1="-3.25" x2="-9" y2="-3.25" width="0.05" layer="39"/>
-<wire x1="-9" y1="-3.25" x2="-9" y2="3.25" width="0.05" layer="39"/>
-<text x="-8.7" y="3.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-8.7" y="-4.65" size="1.27" layer="27">&gt;VALUE</text>
-<wire x1="-8.75" y1="3" x2="6.75" y2="3" width="0.127" layer="21"/>
-<wire x1="6.75" y1="3" x2="6.75" y2="-3" width="0.127" layer="21"/>
-<wire x1="6.75" y1="-3" x2="-8.75" y2="-3" width="0.127" layer="21"/>
-<wire x1="-8.75" y1="-3" x2="-8.75" y2="3" width="0.127" layer="21"/>
-<pad name="1" x="-5" y="0" drill="1" shape="square"/>
-<pad name="2" x="0" y="0" drill="1"/>
-<pad name="3" x="2.5" y="0" drill="1"/>
-<pad name="4" x="5" y="0" drill="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="OS103012MU2QP1">
-<text x="-2.54" y="8.128" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
-<wire x1="-2.54" y1="5.08" x2="0" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="0" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-7.62" x2="0" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="6.096" x2="1.27" y2="4.064" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="4.064" x2="2.54" y2="4.064" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="4.064" x2="2.54" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-1.524" x2="1.27" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-1.524" x2="1.27" y2="-3.556" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-3.556" x2="3.81" y2="-3.556" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="-3.556" x2="3.81" y2="6.096" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="6.096" x2="1.27" y2="6.096" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="0" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="7.62" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-10.16" x2="-2.54" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-10.16" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="5.715"/>
-<vertex x="0" y="4.445"/>
-<vertex x="1.27" y="5.08"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="1.905"/>
-<vertex x="0" y="0.635"/>
-<vertex x="1.27" y="1.27"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="-1.905"/>
-<vertex x="0" y="-3.175"/>
-<vertex x="1.27" y="-2.54"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="-4.445"/>
-<vertex x="0" y="-5.715"/>
-<vertex x="1.27" y="-5.08"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="-6.985"/>
-<vertex x="0" y="-8.255"/>
-<vertex x="1.27" y="-7.62"/>
-</polygon>
-<pin name="2" x="-7.62" y="-2.54" visible="pad" length="middle" direction="pas"/>
-<pin name="4" x="-7.62" y="-7.62" visible="pad" length="middle" direction="pas"/>
-<pin name="3" x="-7.62" y="-5.08" visible="pad" length="middle" direction="pas"/>
-<pin name="1" x="-7.62" y="5.08" visible="pad" length="middle" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="OS103012MU2QP1" prefix="U">
-<description>Slide Switch SP3T Through Hole  &lt;a href="https://pricing.snapeda.com/parts/OS103012MU2QP1/C%26K/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="OS103012MU2QP1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SW_OS103012MU2QP1">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="In Stock"/>
-<attribute name="DESCRIPTION" value=" Slide Switch SP3T Through Hole "/>
-<attribute name="MF" value="C&amp;K"/>
-<attribute name="MP" value="OS103012MU2QP1"/>
-<attribute name="PACKAGE" value="None"/>
-<attribute name="PRICE" value="None"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="BUTT-2">
 <packages>
 <package name="SW_BUTT-2">
@@ -4342,6 +4235,75 @@ type 0309, grid 2.5 mm</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="OS103011MS8QP1">
+<packages>
+<package name="OS102011MS8QP1">
+<wire x1="-6.3" y1="2.15" x2="6.3" y2="2.15" width="0.127" layer="21"/>
+<wire x1="6.3" y1="2.15" x2="6.3" y2="-2.15" width="0.127" layer="21"/>
+<wire x1="6.3" y1="-2.15" x2="-6.3" y2="-2.15" width="0.127" layer="21"/>
+<wire x1="-6.3" y1="-2.15" x2="-6.3" y2="2.15" width="0.127" layer="21"/>
+<wire x1="-2" y1="2" x2="-2" y2="-2" width="0.127" layer="51"/>
+<wire x1="0" y1="2" x2="0" y2="-2" width="0.127" layer="51"/>
+<wire x1="2" y1="2" x2="2" y2="-2" width="0.127" layer="51"/>
+<text x="-1.5" y="1.5" size="1" layer="51" ratio="12" align="center">A</text>
+<text x="0.5" y="1.5" size="1" layer="51" ratio="12" align="center">B</text>
+<text x="2.5" y="1.5" size="1" layer="51" ratio="12" align="center">C</text>
+<text x="0" y="2.5" size="1.016" layer="25" ratio="12" align="bottom-center">&gt;NAME</text>
+<pad name="2" x="0" y="0" drill="0.8"/>
+<pad name="1" x="-4" y="0" drill="0.8"/>
+<pad name="3" x="2" y="0" drill="0.8"/>
+<pad name="4" x="4" y="0" drill="0.8"/>
+<pad name="MOUNT1" x="-6.1" y="0" drill="1.5"/>
+<pad name="MOUNT2" x="6.1" y="0" drill="1.5"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SP3T">
+<circle x="0" y="0" radius="0.381" width="0.254" layer="94"/>
+<circle x="7.62" y="2.54" radius="0.381" width="0.254" layer="94"/>
+<circle x="7.62" y="0" radius="0.381" width="0.254" layer="94"/>
+<circle x="7.62" y="-2.54" radius="0.381" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="7.366" y2="3.302" width="0.254" layer="94"/>
+<text x="0" y="5.08" size="1.27" layer="95" ratio="12">&gt;NAME</text>
+<text x="0" y="-5.08" size="1.27" layer="96" ratio="12">&gt;VALUE</text>
+<text x="8.89" y="2.794" size="1.016" layer="95" ratio="12" align="bottom-center">C</text>
+<text x="8.89" y="0.254" size="1.016" layer="95" ratio="12" align="bottom-center">B</text>
+<text x="8.89" y="-2.286" size="1.016" layer="95" ratio="12" align="bottom-center">A</text>
+<pin name="C" x="-2.54" y="0" visible="off" length="short"/>
+<pin name="3" x="10.16" y="2.54" visible="off" length="short" rot="R180"/>
+<pin name="2" x="10.16" y="0" visible="off" length="short" rot="R180"/>
+<pin name="1" x="10.16" y="-2.54" visible="off" length="short" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="OS103011MS8QP1" prefix="S">
+<description>Slide Switch SP3T Through Hole &lt;a href="https://pricing.snapeda.com/parts/OS103011MS8QP1/C%26K/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SP3T" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="OS102011MS8QP1">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="3"/>
+<connect gate="G$1" pin="3" pad="4"/>
+<connect gate="G$1" pin="C" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" SLIDE SWITCH SPDT T/H ON-ON-ON B "/>
+<attribute name="MF" value="C&amp;K"/>
+<attribute name="MP" value="OS103011MS8QP1"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4360,8 +4322,8 @@ type 0309, grid 2.5 mm</description>
 <part name="JP4" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X20" device="" package3d_urn="urn:adsk.eagle:package:22441/2"/>
 <part name="R1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="0204/5" package3d_urn="urn:adsk.eagle:package:6240595/1"/>
 <part name="R2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="0204/5" package3d_urn="urn:adsk.eagle:package:6240595/1"/>
-<part name="U1" library="OS103012MU2QP1" deviceset="OS103012MU2QP1" device=""/>
 <part name="S1" library="BUTT-2" deviceset="BUTT-2" device=""/>
+<part name="S2" library="OS103011MS8QP1" deviceset="OS103011MS8QP1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4400,13 +4362,13 @@ type 0309, grid 2.5 mm</description>
 <attribute name="NAME" x="-62.7126" y="77.47" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-57.912" y="77.47" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U1" gate="G$1" x="-80.01" y="49.784" smashed="yes" rot="MR270">
-<attribute name="NAME" x="-88.138" y="52.324" size="1.778" layer="95" rot="MR270"/>
-<attribute name="VALUE" x="-89.154" y="43.688" size="1.778" layer="96" rot="MR0"/>
-</instance>
 <instance part="S1" gate="G$1" x="-58.928" y="51.054" smashed="yes" rot="R180">
 <attribute name="NAME" x="-53.848" y="47.244" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-53.848" y="54.864" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="S2" gate="G$1" x="-83.058" y="49.022" smashed="yes">
+<attribute name="NAME" x="-83.058" y="54.102" size="1.27" layer="95" ratio="12"/>
+<attribute name="VALUE" x="-83.058" y="43.942" size="1.27" layer="96" ratio="12"/>
 </instance>
 </instances>
 <busses>
@@ -4600,38 +4562,16 @@ type 0309, grid 2.5 mm</description>
 <pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="13" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="3"/>
-<pinref part="U1" gate="G$1" pin="1"/>
 <wire x1="-84.328" y1="65.786" x2="-84.328" y2="57.404" width="0.1524" layer="91"/>
-<wire x1="-84.328" y1="57.404" x2="-85.09" y2="57.404" width="0.1524" layer="91"/>
+<label x="-88.138" y="57.404" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="N$2" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="4"/>
-<pinref part="U1" gate="G$1" pin="2"/>
-<wire x1="-81.788" y1="65.786" x2="-81.788" y2="57.404" width="0.1524" layer="91"/>
-<wire x1="-81.788" y1="57.404" x2="-77.47" y2="57.404" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="JP1" gate="A" pin="5"/>
-<wire x1="-79.248" y1="65.786" x2="-79.248" y2="58.674" width="0.1524" layer="91"/>
-<wire x1="-79.248" y1="58.674" x2="-74.93" y2="58.674" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="3"/>
-<wire x1="-74.93" y1="58.674" x2="-74.93" y2="57.404" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="JP1" gate="A" pin="6"/>
-<wire x1="-76.708" y1="65.786" x2="-76.708" y2="59.69" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="4"/>
-<wire x1="-76.708" y1="59.69" x2="-72.39" y2="59.69" width="0.1524" layer="91"/>
-<wire x1="-72.39" y1="59.69" x2="-72.39" y2="57.404" width="0.1524" layer="91"/>
+<pinref part="S2" gate="G$1" pin="1"/>
+<wire x1="-72.898" y1="46.482" x2="-71.882" y2="46.482" width="0.1524" layer="91"/>
+<label x="-71.628" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -4642,6 +4582,46 @@ type 0309, grid 2.5 mm</description>
 <wire x1="-68.834" y1="60.706" x2="-68.834" y2="51.054" width="0.1524" layer="91"/>
 <pinref part="S1" gate="G$1" pin="2"/>
 <wire x1="-68.834" y1="51.054" x2="-66.548" y2="51.054" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="27" class="0">
+<segment>
+<pinref part="S2" gate="G$1" pin="3"/>
+<wire x1="-72.898" y1="51.562" x2="-71.882" y2="51.562" width="0.1524" layer="91"/>
+<label x="-71.628" y="51.054" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="A" pin="6"/>
+<wire x1="-76.708" y1="65.786" x2="-76.708" y2="59.69" width="0.1524" layer="91"/>
+<wire x1="-76.708" y1="59.69" x2="-72.39" y2="59.69" width="0.1524" layer="91"/>
+<wire x1="-72.39" y1="59.69" x2="-72.39" y2="56.388" width="0.1524" layer="91"/>
+<label x="-72.898" y="54.864" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="14" class="0">
+<segment>
+<pinref part="S2" gate="G$1" pin="2"/>
+<wire x1="-72.898" y1="49.022" x2="-71.882" y2="49.022" width="0.1524" layer="91"/>
+<label x="-71.882" y="48.514" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="A" pin="5"/>
+<wire x1="-79.248" y1="65.786" x2="-79.248" y2="58.674" width="0.1524" layer="91"/>
+<wire x1="-79.248" y1="58.674" x2="-74.93" y2="58.674" width="0.1524" layer="91"/>
+<wire x1="-74.93" y1="58.674" x2="-74.93" y2="56.388" width="0.1524" layer="91"/>
+<label x="-76.454" y="55.88" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="12" class="0">
+<segment>
+<pinref part="S2" gate="G$1" pin="C"/>
+<wire x1="-85.598" y1="49.022" x2="-87.376" y2="49.022" width="0.1524" layer="91"/>
+<label x="-90.932" y="49.022" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="A" pin="4"/>
+<wire x1="-81.788" y1="65.786" x2="-81.788" y2="57.404" width="0.1524" layer="91"/>
+<label x="-83.058" y="56.896" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
