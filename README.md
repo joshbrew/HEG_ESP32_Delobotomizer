@@ -39,15 +39,15 @@ You may install it locally on desktop or mobile as well just like any app and cr
 
 The newer firmware contains a new boot-up routine for making it easier to identify streaming modes on the device. It will flash when powered up to indicate which mode it's in.
 
-Since your device is covered in tape this will help you find the reset button if I didn't mark it for you:
-![esp32](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/29a4eabf0b20d9b95add2a5981e5b34cf1502fad/images/esp32.jpg)
-
 On boot:
 * Two fast blinks: BLE mode
 * Three fast blinks: WIFI mode
 * Four fast blinks: Bluetooth Classic (Serial) mode
 
 The button on the newer devices puts your device to sleep. There will be a switch added next to control device settings.
+
+Since your device is covered in tape this will help you find the reset button if I didn't mark it for you:
+![esp32](https://github.com/moothyknight/HEG_ESP32_Delobotomizer/blob/29a4eabf0b20d9b95add2a5981e5b34cf1502fad/images/esp32.jpg)
 
 ## Device Commands (accessible via app (Send Command button) or serial monitor)
 
