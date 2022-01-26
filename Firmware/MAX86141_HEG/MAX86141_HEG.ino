@@ -10,6 +10,7 @@ bool toggleSleep = false;
 bool WIFItoggle = false;
 unsigned long bootMicros = 0;
 unsigned long inputMicros;
+uint8_t sleepTick = 0; //
 
 /*
   Pins:
@@ -26,6 +27,7 @@ unsigned long inputMicros;
   SWITCH BLE:  P27 
   BTN IN:      P26
 */
+
 
 void goToSleep() {
     EEPROM.write(510,0); //Disarm sleep toggle for next reset
@@ -116,8 +118,8 @@ void setup(){
 
   commandESP32('f');
 
-  pinMode(13, INPUT); //Switch OUT
-  pinMode(12, OUTPUT);  //Switch BT
+  pinMode(12, INPUT);  //Switch OUT
+  pinMode(13, OUTPUT); //Switch BT
   pinMode(14, OUTPUT);  //Switch WIFI
   pinMode(27, OUTPUT);  //Switch BLE
   pinMode(26, INPUT);  //Button In
@@ -127,10 +129,10 @@ void setup(){
     Serial.println("USB Only configuration.");
     Serial.println("Sample commands: 't': Toggle HEG program ON, 'f': Toggle HEG program OFF, 'u': Toggle WiFi mode, 'b': Toggle BLE mode, 'B': Toggle Bluetooth Serial mode");
   }
-  digitalWrite(12, HIGH);
+  digitalWrite(13, HIGH);
   delay(50);
   bool cset = false;
-  if((digitalRead(13) && ComMode == 0) || ComMode == 2) { 
+  if((digitalRead(12)) || ComMode == 2) { 
      setupBTSerial();
      commandESP32('t');
      delay(100);
@@ -149,10 +151,10 @@ void setup(){
      commandESP32('f');
      cset = true;
   } 
-  digitalWrite(12,LOW);
+  digitalWrite(13,LOW);
   digitalWrite(14, HIGH);
   delay(50);
- if((digitalRead(13) && ComMode == 0 && cset == false) || ComMode == 1) {
+ if((digitalRead(12) && cset == false) || ComMode == 1) {
      setupWiFi();
      commandESP32('t');
      delay(100);
@@ -170,7 +172,7 @@ void setup(){
   digitalWrite(14, LOW);
   digitalWrite(27, HIGH);
   delay(50);
- if(digitalRead(13) || cset == false) {
+ if(digitalRead(12) || cset == false) {
      setupBLE();
      commandESP32('t');
      delay(100);
@@ -226,11 +228,15 @@ void loop(){
       outputBT();
       newOutputFlag = false;
   }
-  if(currentMicros - inputMicros >= 300000){ // Check input every N microseconds
-    int SLP = digitalRead(26);
-    if(SLP == 1) {
-        commandESP32('S');
-    }
+  if(currentMicros - inputMicros >= 330000){ // Check input every N microseconds
+//    int SLP = digitalRead(26);
+//    if(SLP == 1) {
+//      sleepTick++;
+//      if(sleepTick > 9) {
+//        commandESP32('S');
+//      }
+//    } else { sleepTick = 0; }
+    
     inputMicros = currentMicros;
     delayMicroseconds(1800);
     checkInput();

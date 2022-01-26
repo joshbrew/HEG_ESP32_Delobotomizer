@@ -65,5 +65,6 @@ Since your device is covered in tape this will help you find the reset button if
 * 'D' - Toggle Debug output (for using Arduino's graphing)
 * 'e' - Toggle exposure settings: slow, fast, and default. default has the slowest output rate but samples faster than slow mode with more averaging.
 * 'l' - Toggle LED protocols in this order: Ambient,IR,2 IR (AMBIENT, LED2, LED1+2); Red,IR,2 IR (LED3, LED2, LED1+2), Red = IR (LED1, LED2, AMB), or Default (LED3,LED2,AMBIENT)
-
+* 'X' - DC filter toggle
+* 'F' - Digital filter toggle
 Note, use the first setting with the command 'l' if your red LED is underperforming. This will make the software compare Ambient and IR, and optional both IR LEDs for extra strength. For some reason the red output is not as consistent for some people.

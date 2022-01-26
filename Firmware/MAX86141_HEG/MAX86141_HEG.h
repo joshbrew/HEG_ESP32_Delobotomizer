@@ -70,7 +70,7 @@ bool AMBIENT = true;
 char * MODE = "TEMP"; //SPO2, DEBUG, FAST, TEMP, EXT_LED (raw ambient mode with GPIO timer based external leds)
 char * LEDPA = "FULL"; //FULL, HALF
 char * EXPMODE = "DEFAULT"; //Exposure modes, DEFAULT, FAST, SLOW
-char * LEDMODE = "DEFAULT"; //DEFAULT, 2IR, 
+char * LEDMODE = "REDISAMB"; //DEFAULT, 2IR, REDISAMB, 2IRAMB
 
 bool coreProgramEnabled = false;
 
