@@ -70,7 +70,7 @@ bool AMBIENT = true;
 char * MODE = "TEMP"; //SPO2, DEBUG, FAST, TEMP, EXT_LED (raw ambient mode with GPIO timer based external leds)
 char * LEDPA = "FULL"; //FULL, HALF
 char * EXPMODE = "DEFAULT"; //Exposure modes, DEFAULT, FAST, SLOW
-char * LEDMODE = "REDISAMB"; //DEFAULT, 2IR, REDISAMB, 2IRAMB
+char * LEDMODE = "DEFAULT"; //DEFAULT, 2IR, REDISAMB, 2IRAMB
 
 bool coreProgramEnabled = false;
 
@@ -164,6 +164,20 @@ void setupHEG() {
   currentMicros = esp_timer_get_time();
   coreNotEnabledMicros = currentMicros;
   coreProgramEnabled = true;
+
+  if(LEDMODE == "REDISAMB") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b10010010); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00000100); //DATA BUF 4 | DATA BUF 3  //
+    } else if (LEDMODE == "2IRAMB") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100011); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00000100); //DATA BUF 4 | DATA BUF 3  //  
+    } else if (LEDMODE == "2IR") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100100); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //  
+    } else if (LEDMODE == "DEFAULT") {
+      HEG1.write_reg(REG_LED_SEQ_1, 0b00100011); //write_reg(REG_LED_SEQ_1, 0b00100001); //DATA BUF 2 | DATA BUF 1  // 0001 - LED 1, 0010 - LED2, 0011 - LED3, 1001 - AMBIENT
+      HEG1.write_reg(REG_LED_SEQ_2, 0b00001001); //DATA BUF 4 | DATA BUF 3  //  
+  } 
 
 }
 
